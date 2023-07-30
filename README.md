@@ -11,6 +11,8 @@
 - DON'T WORRY ABOUT YOUR COMPETITION
 
 # The Idea - Generative AI for education
+**KnowNow**, an app that can instantly interpret and answer any type of homework. Goes viral among students, possibly attracting integration in major school systems, where it can help students understand and create custom learning plans. The progress can be monitored by teachers and parents. We need to decide on an MVP that is user-oriented and addresses primary pain points. The choice should be based on what we can best solve, aligning with YCombinator's advice of focusing on scaling one product before launching many. 
+
 Leveraging generative AI in the education sector, particularly in the context of higher education and competitive exams. 
 
 Examples:
@@ -68,7 +70,10 @@ Examples:
 
     - Cons: Highly specialized content.
 
-Sckaff opinion: GRE.
+**Sckaff opinion**: GRE Flashcards with report button to review and make the flashcards more accurate.
+
+**Caleb opinion**: The offering might be a simple app equipped with OCR capabilities to read and solve homework. 
+
 ----------------------
 
 # YC Office Hours 
