@@ -17,9 +17,11 @@ Leveraging generative AI in the education sector, particularly in the context of
 - Free trial (Anonymous feature. No need to log in. Learn right away. Keep track of users and data.)
     - A free trial would allow users to try out the platform and its features before committing to a purchase. Also, a incredibly good thing to keep track of when applying to YC
 - Personalized experience only after log in
-    - Aid the individual's weaknesses, prioritize it.
-    - Show individual's strength
-    - Adaptive assessment
+    - Do they know their weaknesses and strenghts beforehand? If not, start from 50% everything
+        - What are possible categories to measure?        
+    - Constant Agent Filters (formulate type of answer)
+        - Example: 'be concise', 'explaing reasoning', etc.
+    - Be adaptive
 - Mock Tests
     - Keep track of time, performance, and update weaknesses/strenghts (on an interactive bar. Why? Addicting)
     - Automated grading and feedback
@@ -41,6 +43,7 @@ Leveraging generative AI in the education sector, particularly in the context of
 - Subject categories - Keep track of "subject confidence"
     -  Analytical Writing measure of the GRE General Test
         - Providing structure templates for different types of essays, generating thesis statements, or even offering grammar and style suggestions.
+   
   
 ----------------------
 
