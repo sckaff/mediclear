@@ -1,5 +1,18 @@
-# KnowNow/Gera - Specialized ENEM learning software (MVP)
+# KnowNow/Gera - Specialized GRE learning software (MVP)
 Leveraging generative AI in the education sector, particularly in the context of higher education and competitive exams. On the web.
+
+### Notes before meeting
+- First, GRE we understand better.
+- GRE is very short and there is a very narrow number of subjects.
+- Therefore, easier to code and show MVP
+- Going for standardized tests is a good thing because no one else is doing and they're not going anywhere
+- GRE might be vanishing, but this MVP would quickly escalate to any other standardized test. 
+- Gera BR can be doing ENEM, such as Gera anywhere else. 
+- The _way we show data_ is our moat, along with the data. 
+- Must find: GRE previous exams
+- Again - very easy way to start. ENEM is MUCH more complicated (2 days of 5h30m)
+- Must: See how ChatGPT performs with GRE.
+- Again, we would be much more specialized. and ONE place for all tests, since Generative AI is THAT good, and we are the first ones to see that in this way :)
 
 ## Reasons
 - Very expensive study material
@@ -8,7 +21,6 @@ Leveraging generative AI in the education sector, particularly in the context of
 - Unpersonalized training
     - One-fits-all method
     - No tutoring
-- 'Cursinhos' can be very expensive
 - Broad number of subjects, hard to keep track, know where/when to improve
 - GRE Agent
     - Pros: Wide user base; includes both verbal and quantitative sections, offering a broader range of content.
@@ -25,12 +37,8 @@ Leveraging generative AI in the education sector, particularly in the context of
     - Be adaptive
 - Original Tests
     - We should include and make all other previous tests available in the platform.
-    - Separate by category. ENEM Categories:
-        - Ciências Humanas e suas Tecnologias (History, Geography, Philosophy, Sociology)
-        - Ciências da Natureza e suas Tecnologias (Physics, Chemistry, Biology)
-        - Linguagens, Códigos e suas Tecnologias (Portuguese, Foreign Languages, Literature, PhysEd, IT and Communications, Art)
-        - Matemática e suas Tecnologias (Math)
-        - Essay (Very specific guidelines)
+    - Separate by category. GRE Categories:
+        - TODO
     - Question alternative generator
 - Flashcard generator
     - This MVP will be easier to develop, and it also tests the core functionality of your generative AI – the ability to create meaningful, valuable content from existing material.
