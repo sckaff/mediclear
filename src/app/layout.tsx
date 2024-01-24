@@ -2,15 +2,15 @@ import "../styles/globals.css";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "MediCare Health Services",
+  title: "MediClear Health Services",
   openGraph: {
-    title: "MediCare Health Services",
+    title: "MediClear Health Services",
     description:
       "To-Do: Add a description",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MediCare Health Services",
+    title: "MediClear Health Services",
     description:
       "To-Do: Add a description",
   },

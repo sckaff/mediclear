@@ -1,19 +1,19 @@
-# MediCare
+# MediClear
 
 ## Installation and Local Development
 
 Follow these steps to install and test the application locally:
 
 ```bash
-$ git clone https://github.com/sckaff/MediCare.git
+$ git clone https://github.com/sckaff/MediClear.git
 
-$ cd MediCare
+$ cd MediClear
 
 $ npm run dev
 ```
 ## Links
-- Project homepage: https://github.com/sckaff/MediCare
-- Repository (temporary): https://medi-care-three.vercel.app/
+- Project homepage: https://github.com/sckaff/MediClear
+- Repository (temporary): https://mediclear-hs.vercel.app/
 
 ## Notes
 - So far so good.

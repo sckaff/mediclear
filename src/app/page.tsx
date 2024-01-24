@@ -53,7 +53,7 @@ export default function Home() {
             }}
             className="relative md:ml-[-10px] md:mb-[37px] font-extrabold text-[4vw] md:text-[32px] font-inter text-[#1E2B3A] leading-[0.9] tracking-[-2px] z-[100]"
           >
-            MEDICARE
+            MEDICLEAR
           </motion.h1>
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
