@@ -12,11 +12,19 @@ $ cd MediClear
 $ npm run dev
 ```
 ## Links
-- Project homepage: https://github.com/sckaff/MediClear
-- Repository (temporary): https://mediclear-hs.vercel.app/
-
-## Notes
-- So far so good.
+- Launching page: [mediclear.ai](mediclear.ai)
 
 ## To-Do
-- Issue tracker.
+- Websitecard, personalize it
+    - Better contact and features section
+    - Make it pop out of the window or whatever.
+
+- Contact: 
+    - First Name, Last Name, Email, Message, Answer random question
+
+- Twitter, linkedin, github
+
+- Pitch deck
+    
+    - Show proof of work and people that want to use us
+    - Demand, excitement, perception
