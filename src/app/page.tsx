@@ -141,6 +141,25 @@ export default function Home() {
                 Contact Us
               </Link>
             </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.65,
+                duration: 0.55,
+                ease: [0.075, 0.82, 0.965, 1],
+              }}
+            >
+              <Link
+                href="/demo"
+                className="group rounded-full px-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#f5f7f9] text-[#1E2B3A] no-underline active:scale-95 scale-100 duration-75"
+                style={{
+                  boxShadow: "0 1px 1px #0c192714, 0 1px 3px #0c192724",
+                }}
+              >
+                <span> Learn more </span>
+              </Link>
+            </motion.div>
           </div>
         </main>
 

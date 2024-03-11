@@ -2,17 +2,17 @@ import "../styles/globals.css";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "MediClear Health Services",
+  title: "MediClear",
   openGraph: {
-    title: "MediClear Health Services",
+    title: "MediClear",
     description:
-      "To-Do: Add a description",
+      "MediClear is an AI-driven platform enhancing healthcare billing by automating claim submissions, verifying insurance eligibility, and simplifying benefits understanding.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MediClear Health Services",
+    title: "MediClear",
     description:
-      "To-Do: Add a description",
+      "MediClear is an AI-driven platform enhancing healthcare billing by automating claim submissions, verifying insurance eligibility, and simplifying benefits understanding.",
   },
 };
 
