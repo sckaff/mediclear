@@ -6,14 +6,21 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MediClear",
     description:
-      "MediClear is an AI-driven platform enhancing healthcare billing by automating claim submissions, verifying insurance eligibility, and simplifying benefits understanding.",
+      "MediClear is an AI-powered platform that simplifies healthcare billing and insurance processes.",
+    images: [
+      {
+        url: "https://www.mediclear.ai/opengraph-image.png",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "MediClear",
     description:
-      "MediClear is an AI-driven platform enhancing healthcare billing by automating claim submissions, verifying insurance eligibility, and simplifying benefits understanding.",
+      "MediClear is an AI-powered platform that simplifies healthcare billing and insurance processes.",
+    images: ["https://www.mediclear.ai/opengraph-image.png"],
   },
+  metadataBase: new URL("https://www.mediclear.ai/"),
 };
 
 export default async function RootLayout({
@@ -23,9 +30,14 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Add theme color meta tag directly */}
+        <meta name="theme-color" content="#FFF" />
+      </head>
       <body className="scroll-smooth antialiased [font-feature-settings:'ss01']">
         {children}
       </body>
     </html>
   );
 }
+
