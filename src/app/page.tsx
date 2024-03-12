@@ -84,7 +84,7 @@ export default function Home() {
                 Hospitals
               </h2>
               <p className="text-[14px] leading-[20px] text-[#1a2b3b] font-normal">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut.
+                Streamline your billing cycle, reduce errors, and improve reimbursement rates with our AI-powered platform.
               </p>
             </div>
             <div className="w-1/2">
@@ -92,7 +92,7 @@ export default function Home() {
                 Individuals
               </h2>
               <p className="text-[14px] leading-[20px] text-[#1a2b3b] font-normal">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut.
+                Navigate your insurance claims with ease and gain clarity on your coverage benefits with our automated assistance.
               </p>
             </div>
           </motion.div>
