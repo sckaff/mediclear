@@ -3,12 +3,18 @@
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { gradient } from "@/components/Gradient";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Modal from "@/components/Modal";
 
 export default function Home() {
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
   useEffect(() => {
     gradient.initGradient("#gradient-canvas");
   }, []);
+
+  const toggleModal = () => setIsModalVisible(!isModalVisible);
 
   return (
     <AnimatePresence>
@@ -150,15 +156,15 @@ export default function Home() {
                 ease: [0.075, 0.82, 0.965, 1],
               }}
             >
-              <Link
-                href="/demo"
+              <button
+                onClick={toggleModal} // Toggle modal visibility
                 className="group rounded-full px-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#f5f7f9] text-[#1E2B3A] no-underline active:scale-95 scale-100 duration-75"
                 style={{
                   boxShadow: "0 1px 1px #0c192714, 0 1px 3px #0c192724",
                 }}
               >
-                <span> Learn more </span>
-              </Link>
+                <span>Learn more</span>
+              </button>
             </motion.div>
           </div>
         </main>
@@ -194,6 +200,51 @@ export default function Home() {
           Pre-launch website - currently under development
         </div>
       </div>
+      <Modal isVisible={isModalVisible} onClose={toggleModal}>
+        <h2 className="text-xl font-semibold text-center mb-4">Our Services</h2>
+      
+        <div className="space-y-6">
+          {/* Automated CPT Code and Billing Error Identification */}
+          <div>
+            <h3 className="text-lg font-semibold">Automated CPT Code and Billing Error Identification</h3>
+            <ul className="list-disc list-inside text-sm">
+              <li>Reduces the risk of claim denials due to coding errors, improving claim acceptance rates.</li>
+            </ul>
+          </div>
+
+          {/* Pre-Authorization Request Automation */}
+          <div>
+            <h3 className="text-lg font-semibold">Pre-Authorization Request Automation</h3>
+            <ul className="list-disc list-inside text-sm">
+              <li>Streamlines the pre-authorization process, reducing denials due to lack of prior authorization.</li>
+            </ul>
+          </div>
+
+          {/* Real-Time Eligibility and Benefits Verification */}
+          <div>
+            <h3 className="text-lg font-semibold">Real-Time Eligibility and Benefits Verification</h3>
+            <ul className="list-disc list-inside text-sm">
+              <li>Prevents claim denials due to coverage issues, ensuring services are covered.</li>
+            </ul>
+          </div>
+
+          {/* Automated Appeal Letters for Denied Claims */}
+          <div>
+            <h3 className="text-lg font-semibold">Automated Appeal Letters for Denied Claims</h3>
+            <ul className="list-disc list-inside text-sm">
+              <li>Simplifies the appeal process, potentially reversing denials and recovering revenue.</li>
+            </ul>
+          </div>
+
+          {/* Integration with EMR/EHR Systems */}
+          <div>
+            <h3 className="text-lg font-semibold">Integration with EMR/EHR Systems</h3>
+            <ul className="list-disc list-inside text-sm">
+              <li>Reduces manual data entry errors and streamlines the claim submission process, making it more efficient.</li>
+            </ul>
+          </div>
+        </div>
+      </Modal>
     </AnimatePresence>
   );
 }

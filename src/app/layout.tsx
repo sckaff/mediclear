@@ -31,7 +31,6 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Add theme color meta tag directly */}
         <meta name="theme-color" content="#FFF" />
       </head>
       <body className="scroll-smooth antialiased [font-feature-settings:'ss01']">
