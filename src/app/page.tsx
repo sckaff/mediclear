@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { gradient } from "@/components/Gradient";
 import { useEffect, useState } from "react";
@@ -9,12 +8,19 @@ import Modal from "@/components/Modal";
 export default function Home() {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isContactModalVisible, setIsContactModalVisible] = useState(false);
 
   useEffect(() => {
     gradient.initGradient("#gradient-canvas");
   }, []);
 
   const toggleModal = () => setIsModalVisible(!isModalVisible);
+  const toggleContactModal = () => setIsContactModalVisible(!isContactModalVisible);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent default form submission to the server
+    console.log('Submitted');
+  };  
 
   return (
     <AnimatePresence>
@@ -113,13 +119,11 @@ export default function Home() {
                 ease: [0.075, 0.82, 0.965, 1],
               }}
             >
-              <Link
-                href="https://www.linkedin.com/in/caleb-valdez-copeland/"
-                target="_blank"
+              <button
+                onClick={toggleContactModal} // Toggle the "Contact Us" modal visibility
                 className="group rounded-full pl-[8px] min-w-[180px] pr-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#1E2B3A] text-white hover:[linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0D2247] no-underline flex gap-x-2  active:scale-95 scale-100 duration-75"
                 style={{
-                  boxShadow:
-                    "0px 1px 4px rgba(13, 34, 71, 0.17), inset 0px 0px 0px 1px #061530, inset 0px 0px 0px 2px rgba(255, 255, 255, 0.1)",
+                  boxShadow: "0px 1px 4px rgba(13, 34, 71, 0.17), inset 0px 0px 0px 1px #061530, inset 0px 0px 0px 2px rgba(255, 255, 255, 0.1)",
                 }}
               >
                 <span className="w-5 h-5 rounded-full bg-[#407BBF] flex items-center justify-center">
@@ -145,7 +149,7 @@ export default function Home() {
                   </svg>
                 </span>
                 Contact Us
-              </Link>
+              </button>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -244,6 +248,47 @@ export default function Home() {
             </ul>
           </div>
         </div>
+      </Modal>
+      <Modal isVisible={isContactModalVisible} onClose={toggleContactModal}>
+        <form onSubmit={handleSubmit}>
+          <div className="space-y-4">
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+              <input type="text" id="name" name="name" required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"/>
+            </div>
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
+              <input type="email" id="email" name="email" required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"/>
+            </div>
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone Number (Optional)</label>
+              <input type="tel" id="phone" name="phone" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"/>
+            </div>
+            {/* <div>
+              <label htmlFor="interest" className="block text-sm font-medium text-gray-700">Interest Area</label>
+              <select id="interest" name="interest" required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                <option value="">Select an option</option>
+                <option value="billing">Billing Solutions</option>
+                <option value="patientCare">Patient Care</option>
+                <option value="medicalRecords">Medical Records</option>
+              </select>
+            </div> */}
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+              <textarea id="message" name="message" required rows={4} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"></textarea>
+            </div>
+            <div>
+              <label htmlFor="source" className="block text-sm font-medium text-gray-700">How did you hear about us? (Optional)</label>
+              <input type="text" id="source" name="source" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"/>
+            </div>
+          </div>
+          <button 
+            type="submit" 
+            className="mt-6 w-full bg-darkblue hover:bg-hoverblue text-white font-bold py-2 px-4 rounded transition-colors duration-150 ease-in-out"
+          >
+            Send Message
+          </button>
+        </form>
       </Modal>
     </AnimatePresence>
   );
