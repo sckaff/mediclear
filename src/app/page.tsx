@@ -17,10 +17,33 @@ export default function Home() {
   const toggleModal = () => setIsModalVisible(!isModalVisible);
   const toggleContactModal = () => setIsContactModalVisible(!isContactModalVisible);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // Prevent default form submission to the server
-    console.log('Submitted');
-  };  
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const formData = {
+      name: (form.elements.namedItem('name') as HTMLInputElement).value,
+      email: (form.elements.namedItem('email') as HTMLInputElement).value,
+      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+      source: (form.elements.namedItem('source') as HTMLInputElement).value,
+    };
+
+    const response = await fetch('http://localhost:3001/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      console.log('Message sent successfully');
+      // You can reset the form or show a success message
+    } else {
+      console.log('Failed to send message');
+      // Handle errors or show an error message
+    }
+};
+
 
   return (
     <AnimatePresence>
@@ -121,7 +144,7 @@ export default function Home() {
             >
               <button
                 onClick={toggleContactModal} // Toggle the "Contact Us" modal visibility
-                className="group rounded-full pl-[8px] min-w-[180px] pr-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#1E2B3A] text-white hover:[linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0D2247] no-underline flex gap-x-2  active:scale-95 scale-100 duration-75"
+                className="group rounded-full pl-[8px] min-w-[180px] pr-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#1E2B3A] text-white hover:[linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0D2247] no-underline flex gap-x-2  active:scale-20 scale-100 duration-75"
                 style={{
                   boxShadow: "0px 1px 4px rgba(13, 34, 71, 0.17), inset 0px 0px 0px 1px #061530, inset 0px 0px 0px 2px rgba(255, 255, 255, 0.1)",
                 }}
@@ -162,7 +185,7 @@ export default function Home() {
             >
               <button
                 onClick={toggleModal} // Toggle modal visibility
-                className="group rounded-full px-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#f5f7f9] text-[#1E2B3A] no-underline active:scale-95 scale-100 duration-75"
+                className="group rounded-full px-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#f5f7f9] text-[#1E2B3A] no-underline active:scale-70 scale-100 duration-75"
                 style={{
                   boxShadow: "0 1px 1px #0c192714, 0 1px 3px #0c192724",
                 }}
@@ -260,10 +283,10 @@ export default function Home() {
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
               <input type="email" id="email" name="email" required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"/>
             </div>
-            <div>
+            {/* <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone Number (Optional)</label>
               <input type="tel" id="phone" name="phone" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"/>
-            </div>
+            </div> */}
             {/* <div>
               <label htmlFor="interest" className="block text-sm font-medium text-gray-700">Interest Area</label>
               <select id="interest" name="interest" required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
