@@ -23,7 +23,7 @@ const Modal = ({ isVisible, onClose, children }) => {
                 width: "600px", 
                 overflowY: "auto",
                 maxHeight: "70vh", // Maximum height
-                minHeight: "40vh", // Minimum height
+                minHeight: "20vh", // Minimum height
               }}
             onClick={e => e.stopPropagation()} // Prevent click from propagating to overlay
             >

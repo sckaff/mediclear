@@ -11,13 +11,3 @@ $ cd MediClear
 
 $ npm run dev
 ```
-
-## To-Do
-- Contact: 
-    - First Name, Last Name, Email, Message, Answer random question
-
-- Twitter, linkedin, github
-
-- Pitch deck
-    - Show proof of work and people that want to use us
-    - Demand, excitement, perception

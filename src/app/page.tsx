@@ -21,11 +21,10 @@ export default function Home() {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const formData = {
-      name: (form.elements.namedItem('name') as HTMLInputElement).value,
-      email: (form.elements.namedItem('email') as HTMLInputElement).value,
       message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
-      source: (form.elements.namedItem('source') as HTMLInputElement).value,
     };
+
+    console.log(formData);
 
     const response = await fetch('/api/contact', {
       method: 'POST',
@@ -276,33 +275,8 @@ export default function Home() {
         <form onSubmit={handleSubmit}>
           <div className="space-y-4">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
-              <input type="text" id="name" name="name" required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"/>
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
-              <input type="email" id="email" name="email" required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"/>
-            </div>
-            {/* <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone Number (Optional)</label>
-              <input type="tel" id="phone" name="phone" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"/>
-            </div> */}
-            {/* <div>
-              <label htmlFor="interest" className="block text-sm font-medium text-gray-700">Interest Area</label>
-              <select id="interest" name="interest" required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
-                <option value="">Select an option</option>
-                <option value="billing">Billing Solutions</option>
-                <option value="patientCare">Patient Care</option>
-                <option value="medicalRecords">Medical Records</option>
-              </select>
-            </div> */}
-            <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
               <textarea id="message" name="message" required rows={4} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"></textarea>
-            </div>
-            <div>
-              <label htmlFor="source" className="block text-sm font-medium text-gray-700">How did you hear about us? (Optional)</label>
-              <input type="text" id="source" name="source" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"/>
             </div>
           </div>
           <button 
