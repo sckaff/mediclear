@@ -9,6 +9,8 @@ export default function Home() {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isContactModalVisible, setIsContactModalVisible] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     gradient.initGradient("#gradient-canvas");
@@ -19,9 +21,16 @@ export default function Home() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitted(false);
+    setIsError(false);
+
     const form = e.target as HTMLFormElement;
     const formData = {
+      name: (form.elements.namedItem('name') as HTMLTextAreaElement).value,
+      email: (form.elements.namedItem('email') as HTMLTextAreaElement).value,
+      phone: (form.elements.namedItem('phone') as HTMLTextAreaElement).value, // Since this is optional, it's okay if it's empty
       message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+      source: (form.elements.namedItem('source') as HTMLTextAreaElement).value, // This is also optional
     };
 
     console.log(formData);
@@ -36,10 +45,13 @@ export default function Home() {
 
     if (response.ok) {
       console.log('Message sent successfully');
-      // You can reset the form or show a success message
+      form.reset();
+      setIsSubmitted(true);
+      setTimeout(() => setIsSubmitted(false), 10000); // Hide after 10 seconds
     } else {
       console.log('Failed to send message');
-      // Handle errors or show an error message
+      setIsError(true);
+      setTimeout(() => setIsError(false), 10000); 
     }
 };
 
@@ -274,17 +286,41 @@ export default function Home() {
       <Modal isVisible={isContactModalVisible} onClose={toggleContactModal}>
         <form onSubmit={handleSubmit}>
           <div className="space-y-4">
+            {/* Name Field */}
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+              <input type="text" id="name" name="name" required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"/>
+            </div>
+
+            {/* Email Field */}
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
+              <input type="email" id="email" name="email" required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"/>
+            </div>
+
+            {/* Phone Field (Optional) */}
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone Number (Optional)</label>
+              <input type="tel" id="phone" name="phone" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"/>
+            </div>
+
+            {/* Message Field */}
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
               <textarea id="message" name="message" required rows={4} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"></textarea>
             </div>
+
+            {/* Source Field (Optional) */}
+            <div>
+              <label htmlFor="source" className="block text-sm font-medium text-gray-700">How did you hear about us? (Optional)</label>
+              <input type="text" id="source" name="source" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"/>
+            </div>
           </div>
-          <button 
-            type="submit" 
-            className="mt-6 w-full bg-darkblue hover:bg-hoverblue text-white font-bold py-2 px-4 rounded transition-colors duration-150 ease-in-out"
-          >
+          <button type="submit" className="mt-6 w-full bg-darkblue hover:bg-hoverblue text-white font-bold py-2 px-4 rounded transition-colors duration-150 ease-in-out">
             Send Message
           </button>
+          {isSubmitted && <div style={{ color: 'green', marginTop: '10px', fontFamily: 'Verdana, sans-serif', fontSize: '14px' }}>Message submitted successfully!</div>}
+          {isError && <div style={{ color: 'red', marginTop: '10px', fontFamily: 'Verdana, sans-serif', fontSize: '14px' }}>Failed to send message. Please try again later.</div>}
         </form>
       </Modal>
     </AnimatePresence>

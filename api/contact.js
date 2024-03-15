@@ -4,20 +4,20 @@ sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
 module.exports = async (req, res) => {
   
-  // Handle preflight requests
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
 
   if (req.method === 'POST') {
-    const { message } = req.body;
+    const { name, email, phone, message, source } = req.body;
 
+    const emailContent = `Name: ${name}\nEmail: ${email}\n${phone ? 'Phone: ' + phone + '\n' : ''}Message: ${message}\n${source ? 'Heard about us through: ' + source : ''}`;
     const content = {
       to: 'fernando@mediclear.ai',
-      from: 'fernando@mediclear.ai',
-      subject: `Message from Simple Form`,
-      text: `Message: ${message}`,
-      html: `<p>Message: ${message}</p>`,
+      from: 'fernando@mediclear.ai', // Make sure this is a verified sender in SendGrid
+      subject: `New message from ${name}`,
+      text: emailContent,
+      html: `<p>${emailContent.replace(/\n/g, '<br>')}</p>`,
     };
 
     try {
