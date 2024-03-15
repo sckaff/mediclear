@@ -318,6 +318,7 @@ export default function Home() {
                 id="phone"
                 name="phone"
                 placeholder="Enter phone number"
+                defaultCountry="US"
                 value={phoneNumber}
                 onChange={handlePhoneChange}
                 className="mt-1 block w-full rounded-md shadow-sm"
