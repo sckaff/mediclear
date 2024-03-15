@@ -1,14 +1,17 @@
 "use client";
 
+import PhoneInput, { isPossiblePhoneNumber } from 'react-phone-number-input';
 import { AnimatePresence, motion } from "framer-motion";
 import { gradient } from "@/components/Gradient";
 import { useEffect, useState } from "react";
+import 'react-phone-number-input/style.css';
 import Modal from "@/components/Modal";
 
 export default function Home() {
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
   const [isContactModalVisible, setIsContactModalVisible] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [phoneNumber, setPhoneNumber] = useState<string>('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -19,6 +22,16 @@ export default function Home() {
   const toggleModal = () => setIsModalVisible(!isModalVisible);
   const toggleContactModal = () => setIsContactModalVisible(!isContactModalVisible);
 
+  const handlePhoneChange = (value: string | undefined) => {
+    // Here, you could add additional logic if needed,
+    // for example, validating the phone number format.
+    if (value) { // If value is not undefined, update the state
+      setPhoneNumber(value);
+    } else { // Clear the state if the input is cleared
+      setPhoneNumber('');
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitted(false);
@@ -28,7 +41,7 @@ export default function Home() {
     const formData = {
       name: (form.elements.namedItem('name') as HTMLTextAreaElement).value,
       email: (form.elements.namedItem('email') as HTMLTextAreaElement).value,
-      phone: (form.elements.namedItem('phone') as HTMLTextAreaElement).value, // Since this is optional, it's okay if it's empty
+      phone: phoneNumber, // Since this is optional, it's okay if it's empty
       message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
       source: (form.elements.namedItem('source') as HTMLTextAreaElement).value, // This is also optional
     };
@@ -301,7 +314,14 @@ export default function Home() {
             {/* Phone Field (Optional) */}
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone Number (Optional)</label>
-              <input type="tel" id="phone" name="phone" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"/>
+              <PhoneInput
+                id="phone"
+                name="phone"
+                placeholder="Enter phone number"
+                value={phoneNumber}
+                onChange={handlePhoneChange}
+                className="mt-1 block w-full rounded-md shadow-sm"
+              />
             </div>
 
             {/* Message Field */}
