@@ -168,7 +168,7 @@ export default function Home() {
             >
               <button
                 onClick={toggleContactModal} // Toggle the "Contact Us" modal visibility
-                className="group rounded-full pl-[8px] min-w-[180px] pr-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#1E2B3A] text-white hover:[linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0D2247] no-underline flex gap-x-2  active:scale-20 scale-100 duration-75"
+                className="group rounded-full pl-[8px] min-w-[160px] pr-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#1E2B3A] text-white hover:[linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0D2247] no-underline flex gap-x-2  active:scale-20 scale-100 duration-75"
                 style={{
                   boxShadow: "0px 1px 4px rgba(13, 34, 71, 0.17), inset 0px 0px 0px 1px #061530, inset 0px 0px 0px 2px rgba(255, 255, 255, 0.1)",
                 }}
@@ -195,7 +195,7 @@ export default function Home() {
                     ></path>
                   </svg>
                 </span>
-                Contact Us
+                Get Updates
               </button>
             </motion.div>
             <motion.div
@@ -247,8 +247,20 @@ export default function Home() {
           data-transition-in
           className="z-50 fixed top-0 right-[-2px] w-[80%] md:w-1/2 h-screen bg-[#c3e4ff]"
         ></motion.canvas>
-        <div className="h-[60px] bg-[#1D2B3A] fixed bottom-0 z-20 w-full flex flex-row items-center justify-start text-white text-sm font-mono p-8">
-          Pre-launch website - currently under development
+        <div className="h-[60px] bg-[#1D2B3A] fixed bottom-0 z-20 w-full flex flex-row items-center justify-start text-white text-sm font-mono pl-4">
+          <span className="pl-4">Pre-launch website - currently under development</span>
+          <button
+            onClick={toggleContactModal} // Reuse the toggleContactModal for showing the contact modal
+            className="ml-4 rounded-md px-3 py-1 text-[11px] transition-all text-white"
+            style={{
+              backgroundColor: "#1D2B3A",
+              boxShadow: "inset 0 0 0 1px #2e4053", // Slightly lighter border for visibility
+            }}
+            onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#305f8a")} // Change color on hover
+            onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#1D2B3A")} // Revert on mouse out
+          >
+            Contact Us
+          </button>
         </div>
       </div>
       <Modal isVisible={isModalVisible} onClose={toggleModal}>
