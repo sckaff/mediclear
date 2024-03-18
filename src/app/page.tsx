@@ -24,6 +24,12 @@ export default function Home() {
     gradient.initGradient("#gradient-canvas");
   }, []);
 
+  useEffect(() => {
+    if (signUpResult === 'success') {
+      setShowInput(false);
+    }
+  }, [signUpResult]);
+  
   const toggleModal = () => setIsModalVisible(!isModalVisible);
   const toggleContactModal = () =>
     setIsContactModalVisible(!isContactModalVisible);
@@ -210,7 +216,7 @@ export default function Home() {
                 className="relative"
               >
                 {showInput ? (
-                  <div className="flex items-center">
+                  <div className="flex items-center relative">
                     <input
                       type="email"
                       id="email"
@@ -238,7 +244,7 @@ export default function Home() {
                     </button>
                     <button
                       onClick={() => setShowInput(false)}
-                      className="ml-2 text-gray-400"
+                      className="ml-2 text-gray-400 absolute right-0 top-0 mr-[1px]"
                       style={{ position: 'absolute', right: '80px', top: '50%', transform: 'translateY(-50%)' }}
                     >
                       ×
