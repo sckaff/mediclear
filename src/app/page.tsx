@@ -6,6 +6,7 @@ import { gradient } from "@/components/Gradient";
 import { useEffect, useState } from "react";
 import "react-phone-number-input/style.css";
 import Modal from "@/components/Modal";
+import { useRef } from "react";
 
 export default function Home() {
   const [signUpResult, setSignUpResult] = useState<"success" | "error" | null>(null);
@@ -20,16 +21,18 @@ export default function Home() {
   const [showInput, setShowInput] = useState(false);
   const [email, setEmail] = useState('');
 
+  const learnMoreRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     gradient.initGradient("#gradient-canvas");
   }, []);
-
-  useEffect(() => {
-    if (signUpResult === 'success') {
-      setShowInput(false);
-    }
-  }, [signUpResult]);
   
+  useEffect(() => {
+    if (!showInput) {
+      learnMoreRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [showInput]);
+
   const toggleModal = () => setIsModalVisible(!isModalVisible);
   const toggleContactModal = () =>
     setIsContactModalVisible(!isContactModalVisible);
@@ -51,8 +54,6 @@ export default function Home() {
   
   const handleSignIn = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log("Submitted email.");
-  
     try {
       const response = await fetch("/api/signup", {
         method: "POST",
@@ -279,6 +280,7 @@ export default function Home() {
                 )}
               </motion.div>
               <motion.div
+                ref={learnMoreRef}
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
