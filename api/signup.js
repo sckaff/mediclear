@@ -3,21 +3,19 @@ const sendgrid = require('@sendgrid/mail');
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
 module.exports = async (req, res) => {
-  
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
 
   if (req.method === 'POST') {
-    const { name, email, phone, message, source } = req.body;
+    const { email } = req.body;
 
-    const emailContent = `Name: ${name}\nEmail: ${email}\n${phone ? 'Phone: ' + phone + '\n' : ''}Message: ${message}\n${source ? 'Heard about us through: ' + source : ''}`;
     const content = {
       to: 'fernando@mediclear.ai',
       from: 'fernando@mediclear.ai',
-      subject: `New message from ${name}`,
-      text: emailContent,
-      html: `<p>${emailContent.replace(/\n/g, '<br>')}</p>`,
+      subject: 'New Sign-Up',
+      text: `Email: ${email}`,
+      html: `<p>Email: ${email}</p>`,
     };
 
     try {

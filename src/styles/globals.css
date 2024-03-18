@@ -8,3 +8,8 @@
   --gradient-color-3: #e2d8ee;
   --gradient-color-4: #94c8ff;
 }
+
+.scrollable-container {
+  overflow-y: auto;
+  max-height: calc(100vh - 64px); /* Adjust this value based on your footer height */
+}
