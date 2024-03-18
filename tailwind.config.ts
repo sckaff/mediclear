@@ -16,6 +16,7 @@ const config: Config = {
       colors: {
         darkblue: '#1F2B3A',
         hoverblue: '#33465e',
+        darkgrayblue: '#1E2B3A',
       },
     },
   },

@@ -8,11 +8,17 @@ import "react-phone-number-input/style.css";
 import Modal from "@/components/Modal";
 
 export default function Home() {
+  const [signUpResult, setSignUpResult] = useState<"success" | "error" | null>(null);
   const [isContactModalVisible, setIsContactModalVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isError, setIsError] = useState(false);
+
+  // Email variables
+  const [isEmailValid, setIsEmailValid] = useState(false);
+  const [showInput, setShowInput] = useState(false);
+  const [email, setEmail] = useState('');
 
   useEffect(() => {
     gradient.initGradient("#gradient-canvas");
@@ -23,14 +29,43 @@ export default function Home() {
     setIsContactModalVisible(!isContactModalVisible);
 
   const handlePhoneChange = (value: string | undefined) => {
-    // Here, you could add additional logic if needed,
-    // for example, validating the phone number format.
     if (value) {
-      // If value is not undefined, update the state
       setPhoneNumber(value);
     } else {
-      // Clear the state if the input is cleared
       setPhoneNumber("");
+    }
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const email = e.target.value;
+    const emailRegex = /\S+@\S+\.\S+/;
+    setIsEmailValid(emailRegex.test(email));
+    setEmail(email);
+  };
+  
+  const handleSignIn = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    console.log("Submitted email.");
+  
+    try {
+      const response = await fetch("/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+  
+      if (response.ok) {
+        setSignUpResult('success');
+        setTimeout(() => setSignUpResult(null), 5000);
+        setShowInput(false);
+      } else {
+        setSignUpResult('error');
+        setTimeout(() => setSignUpResult(null), 5000);
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
     }
   };
 
@@ -43,10 +78,10 @@ export default function Home() {
     const formData = {
       name: (form.elements.namedItem("name") as HTMLTextAreaElement).value,
       email: (form.elements.namedItem("email") as HTMLTextAreaElement).value,
-      phone: phoneNumber, // Since this is optional, it's okay if it's empty
+      phone: phoneNumber, // Optional
       message: (form.elements.namedItem("message") as HTMLTextAreaElement)
         .value,
-      source: (form.elements.namedItem("source") as HTMLTextAreaElement).value, // This is also optional
+      source: (form.elements.namedItem("source") as HTMLTextAreaElement).value, // Optional
     };
 
     console.log(formData);
@@ -163,6 +198,7 @@ export default function Home() {
               </div>
             </motion.div>
             <div className="flex flex-col md:flex-row justify-center md:justify-start gap-[15px] mt-8 md:mt-0 items-center md:items-start">
+              {/* "Get Updates" button with input field */}
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -171,39 +207,70 @@ export default function Home() {
                   duration: 0.55,
                   ease: [0.075, 0.82, 0.965, 1],
                 }}
+                className="relative"
               >
-                <button
-                  onClick={toggleContactModal} // Toggle the "Contact Us" modal visibility
-                  className="group rounded-full pl-[8px] min-w-[160px] pr-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#1E2B3A] text-white hover:[linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0D2247] no-underline flex gap-x-2  active:scale-20 scale-100 duration-75"
-                  style={{
-                    boxShadow:
-                      "0px 1px 4px rgba(13, 34, 71, 0.17), inset 0px 0px 0px 1px #061530, inset 0px 0px 0px 2px rgba(255, 255, 255, 0.1)",
-                  }}
-                >
-                  <span className="w-5 h-5 rounded-full bg-[#407BBF] flex items-center justify-center">
-                    <svg
-                      className="w-[16px] h-[16px] text-white"
-                      fill="none"
-                      viewBox="0 0 24 24"
+                {showInput ? (
+                  <div className="flex items-center">
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="Enter your email"
+                      required
+                      className="text-[11px] px-4 py-1 rounded-l-full h-8 border border-gray-300 focus:outline-none focus:ring-0 w-full shadow-sm"
+                      style={{
+                        boxShadow: "0 1px 1px #0c192714, 0 1px 3px #0c192724",
+                      }}
+                      onChange={handleEmailChange}
+                    />
+                    <button
+                      type="submit"
+                      onClick={handleSignIn}
+                      className="text-[12px] px-4 py-1 h-8 w-24 rounded-r-full bg-darkgrayblue text-white font-semibold"
+                      style={{
+                        boxShadow: "0 1px 1px #0c192714, 0 1px 3px #0c192724",
+                        backgroundColor: isEmailValid ? "#1E2B3A" : "#ccc",
+                        cursor: isEmailValid ? "pointer" : "not-allowed",
+                      }}
+                      disabled={!isEmailValid}
                     >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M4.75 7.75C4.75 6.64543 5.64543 5.75 6.75 5.75H17.25C18.3546 5.75 19.25 6.64543 19.25 7.75V16.25C19.25 17.3546 18.3546 18.25 17.25 18.25H6.75C5.64543 18.25 4.75 17.3546 4.75 16.25V7.75Z"
-                      ></path>
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M5.5 6.5L12 12.25L18.5 6.5"
-                      ></path>
-                    </svg>
-                  </span>
-                  Get Updates
-                </button>
+                      Sign In
+                    </button>
+                    <button
+                      onClick={() => setShowInput(false)}
+                      className="ml-2 text-gray-400"
+                      style={{ position: 'absolute', right: '80px', top: '50%', transform: 'translateY(-50%)' }}
+                    >
+                      ×
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => setShowInput(true)}
+                    className="group rounded-full pl-[8px] min-w-[160px] pr-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#1E2B3A] text-white hover:[linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #0D2247] no-underline flex gap-x-2 active:scale-20 scale-100 duration-75"
+                    style={{
+                      boxShadow: "0px 1px 4px rgba(13, 34, 71, 0.17), inset 0px 0px 0px 1px #061530, inset 0px 0px 0px 2px rgba(255, 255, 255, 0.1)",
+                    }}
+                  >
+                    <span className="w-5 h-5 rounded-full bg-[#407BBF] flex items-center justify-center">
+                      <svg className="w-[16px] h-[16px] text-white" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.75 7.75C4.75 6.64543 5.64543 5.75 6.75 5.75H17.25C18.3546 5.75 19.25 6.64543 19.25 7.75V16.25C19.25 17.3546 18.3546 18.25 17.25 18.25H6.75C5.64543 18.25 4.75 17.3546 4.75 16.25V7.75Z"></path>
+                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5.5 6.5L12 12.25L18.5 6.5"></path>
+                      </svg>
+                    </span>
+                    Get Updates
+                  </button>
+                )}
+                {signUpResult === 'success' && (
+                  <div className = "text-green-500 font-mono mt-2 text-[10px]">
+                    Sign up successful! Thank you for joining.
+                  </div>
+                )}
+                {signUpResult === 'error' && (
+                  <div className = "text-red-500 font-mono mt-2 text-[10px]">
+                    Failed to sign up. Please try again later.
+                  </div>
+                )}
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
@@ -438,26 +505,12 @@ export default function Home() {
             Send Message
           </button>
           {isSubmitted && (
-            <div
-              style={{
-                color: "green",
-                marginTop: "10px",
-                fontFamily: "Verdana, sans-serif",
-                fontSize: "14px",
-              }}
-            >
-              Message submitted successfully!
+            <div className = "text-green-500 font-mono mt-2 text-[10px]">
+              Message submitted successfully! We will get back to you soon.
             </div>
           )}
           {isError && (
-            <div
-              style={{
-                color: "red",
-                marginTop: "10px",
-                fontFamily: "Verdana, sans-serif",
-                fontSize: "14px",
-              }}
-            >
+            <div className = "text-red-500 font-mono mt-2 text-[10px]">
               Failed to send message. Please try again later.
             </div>
           )}
