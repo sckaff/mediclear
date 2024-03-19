@@ -16,6 +16,8 @@ export default function Home() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isError, setIsError] = useState(false);
 
+  const [inputValue, setInputValue] = useState('');
+
   // Email variables
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [showInput, setShowInput] = useState(false);
@@ -51,9 +53,10 @@ export default function Home() {
     const emailRegex = /\S+@\S+\.\S+/;
     setIsEmailValid(emailRegex.test(email));
     setEmail(email);
+    setInputValue(email);
   };
   
-  const handleSignIn = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSignIn = async (e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLInputElement>) => {
     e.preventDefault();
     try {
       const response = await fetch("/api/signup", {
@@ -70,9 +73,13 @@ export default function Home() {
         setEmail('');
         setIsEmailValid(false);
         setShowInput(false);
+        setInputValue('');
       } else {
         setSignUpResult('error');
         setTimeout(() => setSignUpResult(null), 5000);
+        setEmail('');
+        setIsEmailValid(false);
+        setInputValue('');
       }
     } catch (error) {
       console.error("Error sending email:", error);
@@ -232,6 +239,12 @@ export default function Home() {
                         boxShadow: "0 1px 1px #0c192714, 0 1px 3px #0c192724",
                       }}
                       onChange={handleEmailChange}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" && isEmailValid) {
+                          handleSignIn(e);
+                        }
+                      }}
+                      value={inputValue}
                     />
                     <button
                       type="submit"
