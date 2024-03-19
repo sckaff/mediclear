@@ -359,7 +359,11 @@ export default function Home() {
 
       {/*- MODALS -*/}
 
-      <Modal isVisible={isModalVisible} onClose={toggleModal}>
+      <Modal
+        isVisible={isModalVisible}
+        onClose={toggleModal}
+        setIsVisible={setIsModalVisible}
+      >
         <h2 className="text-xl font-semibold text-center mb-4">Our Services</h2>
 
         <div className="space-y-6">
@@ -429,7 +433,11 @@ export default function Home() {
           </div>
         </div>
       </Modal>
-      <Modal isVisible={isContactModalVisible} onClose={toggleContactModal}>
+      <Modal 
+        isVisible={isContactModalVisible} 
+        onClose={toggleContactModal}
+        setIsVisible={setIsContactModalVisible}
+      >
         <form onSubmit={handleSubmit}>
           <div className="space-y-4">
             {/* Name Field */}
