@@ -29,8 +29,8 @@ const SignUpModal = ({ result, onClose }) => {
               transition={{ delay: 0.2, duration: 0.3, ease: 'easeInOut' }}
             >
               {result === 'success'
-                ? 'Sign up successful!'
-                : 'Sign up failed. Please try again.'}
+                ? 'Success! You\'re in. Exclusive updates and early access await. Stay tuned!'
+                : 'Sign up failed. Please try again later.'}
             </motion.p>
           </div>
         </motion.div>
