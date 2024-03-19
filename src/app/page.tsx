@@ -249,7 +249,7 @@ export default function Home() {
                     <button
                       type="submit"
                       onClick={handleSignIn}
-                      className="text-[12px] px-4 py-1 h-8 w-24 rounded-r-full bg-darkgrayblue text-white font-semibold"
+                      className="text-[12px] px-4 py-1 h-8 w-28 rounded-r-full bg-darkgrayblue text-white font-semibold"
                       style={{
                         boxShadow: "0 1px 1px #0c192714, 0 1px 3px #0c192724",
                         backgroundColor: isEmailValid ? "#1E2B3A" : "#ccc",
@@ -257,12 +257,12 @@ export default function Home() {
                       }}
                       disabled={!isEmailValid}
                     >
-                      Sign In
+                      Sign Up
                     </button>
                     <button
                       onClick={() => setShowInput(false)}
                       className="ml-2 text-gray-400 absolute right-0 top-0 mr-[1px]"
-                      style={{ position: 'absolute', right: '80px', top: '50%', transform: 'translateY(-50%)' }}
+                      style={{ position: 'absolute', right: '88px', top: '50%', transform: 'translateY(-50%)' }}
                     >
                       ×
                     </button>
@@ -281,7 +281,7 @@ export default function Home() {
                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5.5 6.5L12 12.25L18.5 6.5"></path>
                       </svg>
                     </span>
-                    Get Updates
+                    Get Notified About Launch
                   </button>
                 )}
               </motion.div>
@@ -302,7 +302,7 @@ export default function Home() {
                     boxShadow: "0 1px 1px #0c192714, 0 1px 3px #0c192724",
                   }}
                 >
-                  <span>Learn more</span>
+                  <span>Learn More</span>
                 </button>
               </motion.div>
             </div>
