@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { gradient } from "@/components/Gradient";
 import { useEffect, useState } from "react";
 import "react-phone-number-input/style.css";
+import SignUpModal from '@/components/SignUpModal';
 import Modal from "@/components/Modal";
 import { useRef } from "react";
 
@@ -142,6 +143,11 @@ export default function Home() {
           </filter>
           <rect width="100%" height="100%" filter="url(#noise)"></rect>
         </svg>
+
+        {/* Sign Up Modal */}
+        {signUpResult && (
+          <SignUpModal result={signUpResult} onClose={() => setSignUpResult(null)} />
+        )}
 
         <div className="relative flex-grow overflow-auto pb-[72px]">
           {/* Main content */}
