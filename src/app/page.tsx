@@ -68,6 +68,7 @@ export default function Home() {
         setSignUpResult('success');
         setTimeout(() => setSignUpResult(null), 5000);
         setEmail('');
+        setIsEmailValid(false);
         setShowInput(false);
       } else {
         setSignUpResult('error');
