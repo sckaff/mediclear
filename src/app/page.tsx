@@ -34,6 +34,7 @@ export default function Home() {
   }, [showInput]);
 
   const toggleModal = () => setIsModalVisible(!isModalVisible);
+  
   const toggleContactModal = () =>
     setIsContactModalVisible(!isContactModalVisible);
 
@@ -267,16 +268,6 @@ export default function Home() {
                     </span>
                     Get Updates
                   </button>
-                )}
-                {signUpResult === 'success' && (
-                  <div className = "text-green-500 font-mono mt-2 text-[10px]">
-                    Sign up successful! Thank you for joining.
-                  </div>
-                )}
-                {signUpResult === 'error' && (
-                  <div className = "text-red-500 font-mono mt-2 text-[10px]">
-                    Failed to sign up. Please try again later.
-                  </div>
                 )}
               </motion.div>
               <motion.div
