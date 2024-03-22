@@ -8,6 +8,7 @@ import "react-phone-number-input/style.css";
 import SignUpModal from '@/components/SignUpModal';
 import Modal from "@/components/Modal";
 import { useRef } from "react";
+import { z } from 'zod';
 
 export default function Home() {
   const [signUpResult, setSignUpResult] = useState<"success" | "error" | null>(null);
@@ -49,10 +50,19 @@ export default function Home() {
     }
   };
 
+  // Define a schema for the email
+  const emailSchema = z.object({
+    email: z.string().email(),
+  });
+  
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const email = e.target.value;
-    const emailRegex = /\S+@\S+\.\S+/;
-    setIsEmailValid(emailRegex.test(email));
+  
+    // Validate the email against the schema
+    const validationResult = emailSchema.safeParse({ email });
+  
+    // Check if the email is valid and update state accordingly
+    setIsEmailValid(validationResult.success);
     setEmail(email);
     setInputValue(email);
   };
