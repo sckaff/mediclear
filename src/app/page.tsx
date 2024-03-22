@@ -268,7 +268,7 @@ export default function Home() {
                     <button
                       onClick={() => setShowInput(false)}
                       className="ml-2 text-gray-400 absolute right-0 top-0 mr-[1px]"
-                      style={{ position: 'absolute', right: '88px', top: '50%', transform: 'translateY(-50%)' }}
+                      style={{ position: 'absolute', right: '87px', top: '15px', transform: 'translateY(-50%)' }}
                     >
                       ×
                     </button>

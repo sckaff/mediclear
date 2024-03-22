@@ -18,7 +18,7 @@ const SignUpModal = ({ result, onClose }) => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -100, opacity: 0 }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className={`fixed top-[10px] left-[10px] transform -translate-x-1/2 z-50 px-6 py-4 rounded-xl ${
+          className={`fixed top-[10px] left-[10px] mr-[10px] transform -translate-x-1/2 z-50 px-6 py-4 rounded-xl ${
             result === 'success' ? 'bg-green-500' : 'bg-red-500'
           } text-white`}
         >
