@@ -374,72 +374,110 @@ export default function Home() {
         onClose={toggleModal}
         setIsVisible={setIsModalVisible}
       >
-        <h2 className="text-xl font-semibold text-center mb-4">Our Services</h2>
+        <div className="p-6">
+          <h2 className="text-2xl font-semibold text-center mb-4">Learn More About MediClear</h2>
 
-        <div className="space-y-6">
-          {/* Automated CPT Code and Billing Error Identification */}
-          <div>
-            <h3 className="text-lg font-semibold">
-              Automated CPT Code and Billing Error Identification
-            </h3>
-            <ul className="list-disc list-inside text-sm">
-              <li>
-                Reduces the risk of claim denials due to coding errors,
-                improving claim acceptance rates.
-              </li>
-            </ul>
+          <section className="mb-8">
+            <h3 className="text-xl font-semibold text-center mb-4">Our Founders</h3>
+            <div className="flex justify-center space-x-4">
+              <div>
+                <img src="/public/pathToFirstFounderImage.jpg" alt="First Founder Name" className="w-32 h-32 rounded-full mx-auto"/>
+                <p className="text-center mt-2">First Founder Name</p>
+                <p className="text-sm text-center">Brief description of the first founder.</p>
+              </div>
+              <div>
+                <img src="/public/pathToSecondFounderImage.jpg" alt="Second Founder Name" className="w-32 h-32 rounded-full mx-auto"/>
+                <p className="text-center mt-2">Second Founder Name</p>
+                <p className="text-sm text-center">Brief description of the second founder.</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="mb-8">
+            <h3 className="text-xl font-semibold text-center mb-4">About MediClear</h3>
+            <p className="text-sm text-center">
+              MediClear is an AI-driven platform designed to streamline healthcare billing and reduce insurance claim denials through automated code verification and pre-authorization processes.
+            </p>
+          </section>
+
+          <section className="mb-8">
+            <h3 className="text-xl font-semibold mb-4">Our Services</h3>
+            <div className="space-y-6">
+            {/* Automated CPT Code and Billing Error Identification */}
+            <div>
+              <h3 className="text-lg font-semibold">
+                Automated CPT Code and Billing Error Identification
+              </h3>
+              <ul className="list-disc list-inside text-sm">
+                <li>
+                  Reduces the risk of claim denials due to coding errors,
+                  improving claim acceptance rates.
+                </li>
+              </ul>
+            </div>
+
+            {/* Pre-Authorization Request Automation */}
+            <div>
+              <h3 className="text-lg font-semibold">
+                Pre-Authorization Request Automation
+              </h3>
+              <ul className="list-disc list-inside text-sm">
+                <li>
+                  Streamlines the pre-authorization process, reducing denials due
+                  to lack of prior authorization.
+                </li>
+              </ul>
+            </div>
+
+            {/* Real-Time Eligibility and Benefits Verification */}
+            <div>
+              <h3 className="text-lg font-semibold">
+                Real-Time Eligibility and Benefits Verification
+              </h3>
+              <ul className="list-disc list-inside text-sm">
+                <li>
+                  Prevents claim denials due to coverage issues, ensuring services
+                  are covered.
+                </li>
+              </ul>
+            </div>
+
+            {/* Automated Appeal Letters for Denied Claims */}
+            <div>
+              <h3 className="text-lg font-semibold">
+                Automated Appeal Letters for Denied Claims
+              </h3>
+              <ul className="list-disc list-inside text-sm">
+                <li>
+                  Simplifies the appeal process, potentially reversing denials and
+                  recovering revenue.
+                </li>
+              </ul>
+            </div>
+
+            {/* Integration with EMR/EHR Systems */}
+            <div>
+              <h3 className="text-lg font-semibold">
+                Integration with EMR/EHR Systems
+              </h3>
+              <ul className="list-disc list-inside text-sm">
+                <li>
+                  Reduces manual data entry errors and streamlines the claim
+                  submission process, making it more efficient.
+                </li>
+              </ul>
+            </div>
           </div>
-
-          {/* Pre-Authorization Request Automation */}
-          <div>
-            <h3 className="text-lg font-semibold">
-              Pre-Authorization Request Automation
-            </h3>
-            <ul className="list-disc list-inside text-sm">
-              <li>
-                Streamlines the pre-authorization process, reducing denials due
-                to lack of prior authorization.
-              </li>
-            </ul>
-          </div>
-
-          {/* Real-Time Eligibility and Benefits Verification */}
-          <div>
-            <h3 className="text-lg font-semibold">
-              Real-Time Eligibility and Benefits Verification
-            </h3>
-            <ul className="list-disc list-inside text-sm">
-              <li>
-                Prevents claim denials due to coverage issues, ensuring services
-                are covered.
-              </li>
-            </ul>
-          </div>
-
-          {/* Automated Appeal Letters for Denied Claims */}
-          <div>
-            <h3 className="text-lg font-semibold">
-              Automated Appeal Letters for Denied Claims
-            </h3>
-            <ul className="list-disc list-inside text-sm">
-              <li>
-                Simplifies the appeal process, potentially reversing denials and
-                recovering revenue.
-              </li>
-            </ul>
-          </div>
-
-          {/* Integration with EMR/EHR Systems */}
-          <div>
-            <h3 className="text-lg font-semibold">
-              Integration with EMR/EHR Systems
-            </h3>
-            <ul className="list-disc list-inside text-sm">
-              <li>
-                Reduces manual data entry errors and streamlines the claim
-                submission process, making it more efficient.
-              </li>
-            </ul>
+          </section>
+          <div className="text-center mt-8">
+            <a
+              href="yourCalendlyLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition-colors"
+            >
+              Schedule a Consultation
+            </a>
           </div>
         </div>
       </Modal>
