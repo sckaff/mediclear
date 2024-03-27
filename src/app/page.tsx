@@ -8,6 +8,7 @@ import "react-phone-number-input/style.css";
 import SignUpModal from '@/components/SignUpModal';
 import Modal from "@/components/Modal";
 import { useRef } from "react";
+import Image from 'next/image';
 import { z } from 'zod';
 
 export default function Home() {
@@ -381,27 +382,52 @@ export default function Home() {
             <h3 className="text-xl font-semibold text-center mb-4">Our Founders</h3>
             <div className="flex justify-center space-x-4">
               <div>
-                <img src="/public/pathToFirstFounderImage.jpg" alt="First Founder Name" className="w-32 h-32 rounded-full mx-auto"/>
-                <p className="text-center mt-2">First Founder Name</p>
-                <p className="text-sm text-center">Brief description of the first founder.</p>
+                <Image
+                  src="/caleb.png"
+                  alt="Caleb Valdez-Copeland"
+                  width={128} // Adjust according to your image's aspect ratio if needed
+                  height={128}
+                  className="rounded-full mx-auto"
+                  objectFit="cover"
+                />
+                <p className="text-center mt-2">Caleb Valdez-Copeland</p>
+                <p className="text-sm text-center">Prev. @ Tesla, Google, Goldman Sachs</p>
               </div>
               <div>
-                <img src="/public/pathToSecondFounderImage.jpg" alt="Second Founder Name" className="w-32 h-32 rounded-full mx-auto"/>
-                <p className="text-center mt-2">Second Founder Name</p>
-                <p className="text-sm text-center">Brief description of the second founder.</p>
+                <Image
+                  src="/fernando.png"
+                  alt="Fernando Sckaff"
+                  width={128} // Adjust according to your image's aspect ratio if needed
+                  height={128}
+                  className="rounded-full mx-auto"
+                  objectFit="cover"
+                />
+                <p className="text-center mt-2">Fernando Sckaff</p>
+                <p className="text-sm text-center">Machine Learning and Bioinformatics</p>
               </div>
             </div>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-4">
             <h3 className="text-xl font-semibold text-center mb-4">About MediClear</h3>
             <p className="text-sm text-center">
               MediClear is an AI-driven platform designed to streamline healthcare billing and reduce insurance claim denials through automated code verification and pre-authorization processes.
             </p>
           </section>
 
+          <div className="text-center">
+            <a
+              href="https://calendly.com/mediclear-fernando/meeting"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-[#1D2B3A] text-white font-semibold py-2 px-4 rounded hover:bg-opacity-90 transition-colors"
+            >
+              Schedule a Consultation
+            </a>
+          </div>
+
           <section className="mb-8">
-            <h3 className="text-xl font-semibold mb-4">Our Services</h3>
+            <h3 className="text-xl font-semibold mb-4 mt-8 text-center">Our Services</h3>
             <div className="space-y-6">
             {/* Automated CPT Code and Billing Error Identification */}
             <div>
@@ -469,15 +495,16 @@ export default function Home() {
             </div>
           </div>
           </section>
-          <div className="text-center mt-8">
-            <a
-              href="yourCalendlyLink"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition-colors"
+          <div className="text-center">
+            <button
+                onClick={() => {
+                  toggleModal(); // Close the "Learn More" modal
+                  toggleContactModal(); // Open the "Contact Us" modal
+                }}
+              className="inline-block bg-[#1D2B3A] text-white font-semibold py-2 px-4 rounded hover:bg-opacity-90 transition-colors"
             >
-              Schedule a Consultation
-            </a>
+              Contact Us
+            </button>
           </div>
         </div>
       </Modal>
