@@ -8,6 +8,7 @@ import "react-phone-number-input/style.css";
 import SignUpModal from '@/components/SignUpModal';
 import Modal from "@/components/Modal";
 import { useRef } from "react";
+import Image from 'next/image';
 import { z } from 'zod';
 
 export default function Home() {
@@ -374,72 +375,136 @@ export default function Home() {
         onClose={toggleModal}
         setIsVisible={setIsModalVisible}
       >
-        <h2 className="text-xl font-semibold text-center mb-4">Our Services</h2>
+        <div className="p-6">
+          <h2 className="text-2xl font-semibold text-center mb-4">Learn More About MediClear</h2>
 
-        <div className="space-y-6">
-          {/* Automated CPT Code and Billing Error Identification */}
-          <div>
-            <h3 className="text-lg font-semibold">
-              Automated CPT Code and Billing Error Identification
-            </h3>
-            <ul className="list-disc list-inside text-sm">
-              <li>
-                Reduces the risk of claim denials due to coding errors,
-                improving claim acceptance rates.
-              </li>
-            </ul>
+          <section className="mb-8">
+            <h3 className="text-xl font-semibold text-center mb-4">Our Founders</h3>
+            <div className="flex justify-center space-x-4">
+              <div>
+                <Image
+                  src="/caleb.png"
+                  alt="Caleb Valdez-Copeland"
+                  width={128} // Adjust according to your image's aspect ratio if needed
+                  height={128}
+                  className="rounded-full mx-auto"
+                  objectFit="cover"
+                />
+                <p className="text-center mt-2">Caleb Valdez-Copeland</p>
+                <p className="text-sm text-center">Prev. @ Tesla, Google, Goldman Sachs</p>
+              </div>
+              <div>
+                <Image
+                  src="/fernando.png"
+                  alt="Fernando Sckaff"
+                  width={128} // Adjust according to your image's aspect ratio if needed
+                  height={128}
+                  className="rounded-full mx-auto"
+                  objectFit="cover"
+                />
+                <p className="text-center mt-2">Fernando Sckaff</p>
+                <p className="text-sm text-center">Machine Learning and Bioinformatics</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="mb-4">
+            <h3 className="text-xl font-semibold text-center mb-4">About MediClear</h3>
+            <p className="text-sm text-center">
+              MediClear is an AI-driven platform designed to streamline healthcare billing and reduce insurance claim denials through automated code verification and pre-authorization processes.
+            </p>
+          </section>
+
+          <div className="text-center">
+            <a
+              href="https://calendly.com/mediclear-fernando/meeting"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-[#1D2B3A] text-white font-semibold py-2 px-4 rounded hover:bg-opacity-90 transition-colors"
+            >
+              Schedule a Consultation
+            </a>
           </div>
 
-          {/* Pre-Authorization Request Automation */}
-          <div>
-            <h3 className="text-lg font-semibold">
-              Pre-Authorization Request Automation
-            </h3>
-            <ul className="list-disc list-inside text-sm">
-              <li>
-                Streamlines the pre-authorization process, reducing denials due
-                to lack of prior authorization.
-              </li>
-            </ul>
-          </div>
+          <section className="mb-8">
+            <h3 className="text-xl font-semibold mb-4 mt-8 text-center">Our Services</h3>
+            <div className="space-y-6">
+            {/* Automated CPT Code and Billing Error Identification */}
+            <div>
+              <h3 className="text-lg font-semibold">
+                Automated CPT Code and Billing Error Identification
+              </h3>
+              <ul className="list-disc list-inside text-sm">
+                <li>
+                  Reduces the risk of claim denials due to coding errors,
+                  improving claim acceptance rates.
+                </li>
+              </ul>
+            </div>
 
-          {/* Real-Time Eligibility and Benefits Verification */}
-          <div>
-            <h3 className="text-lg font-semibold">
-              Real-Time Eligibility and Benefits Verification
-            </h3>
-            <ul className="list-disc list-inside text-sm">
-              <li>
-                Prevents claim denials due to coverage issues, ensuring services
-                are covered.
-              </li>
-            </ul>
-          </div>
+            {/* Pre-Authorization Request Automation */}
+            <div>
+              <h3 className="text-lg font-semibold">
+                Pre-Authorization Request Automation
+              </h3>
+              <ul className="list-disc list-inside text-sm">
+                <li>
+                  Streamlines the pre-authorization process, reducing denials due
+                  to lack of prior authorization.
+                </li>
+              </ul>
+            </div>
 
-          {/* Automated Appeal Letters for Denied Claims */}
-          <div>
-            <h3 className="text-lg font-semibold">
-              Automated Appeal Letters for Denied Claims
-            </h3>
-            <ul className="list-disc list-inside text-sm">
-              <li>
-                Simplifies the appeal process, potentially reversing denials and
-                recovering revenue.
-              </li>
-            </ul>
-          </div>
+            {/* Real-Time Eligibility and Benefits Verification */}
+            <div>
+              <h3 className="text-lg font-semibold">
+                Real-Time Eligibility and Benefits Verification
+              </h3>
+              <ul className="list-disc list-inside text-sm">
+                <li>
+                  Prevents claim denials due to coverage issues, ensuring services
+                  are covered.
+                </li>
+              </ul>
+            </div>
 
-          {/* Integration with EMR/EHR Systems */}
-          <div>
-            <h3 className="text-lg font-semibold">
-              Integration with EMR/EHR Systems
-            </h3>
-            <ul className="list-disc list-inside text-sm">
-              <li>
-                Reduces manual data entry errors and streamlines the claim
-                submission process, making it more efficient.
-              </li>
-            </ul>
+            {/* Automated Appeal Letters for Denied Claims */}
+            <div>
+              <h3 className="text-lg font-semibold">
+                Automated Appeal Letters for Denied Claims
+              </h3>
+              <ul className="list-disc list-inside text-sm">
+                <li>
+                  Simplifies the appeal process, potentially reversing denials and
+                  recovering revenue.
+                </li>
+              </ul>
+            </div>
+
+            {/* Integration with EMR/EHR Systems */}
+            <div>
+              <h3 className="text-lg font-semibold">
+                Integration with EMR/EHR Systems
+              </h3>
+              <ul className="list-disc list-inside text-sm">
+                <li>
+                  Reduces manual data entry errors and streamlines the claim
+                  submission process, making it more efficient.
+                </li>
+              </ul>
+            </div>
+          </div>
+          </section>
+          <div className="text-center">
+            <button
+                onClick={() => {
+                  toggleModal(); // Close the "Learn More" modal
+                  toggleContactModal(); // Open the "Contact Us" modal
+                }}
+              className="inline-block bg-[#1D2B3A] text-white font-semibold py-2 px-4 rounded hover:bg-opacity-90 transition-colors"
+            >
+              Contact Us
+            </button>
           </div>
         </div>
       </Modal>
