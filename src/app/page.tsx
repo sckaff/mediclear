@@ -382,26 +382,30 @@ export default function Home() {
             <h3 className="text-xl font-semibold text-center mb-4">Our Founders</h3>
             <div className="flex justify-center space-x-4">
               <div>
-                <Image
-                  src="/caleb.png"
-                  alt="Caleb Valdez-Copeland"
-                  width={128} // Adjust according to your image's aspect ratio if needed
-                  height={128}
-                  className="rounded-full mx-auto"
-                  objectFit="cover"
-                />
+                <a href="https://www.linkedin.com/in/caleb-valdez-copeland/" target="_blank">
+                  <Image
+                    src="/caleb.png"
+                    alt="Caleb Valdez-Copeland"
+                    width={128} // Adjust according to your image's aspect ratio if needed
+                    height={128}
+                    className="rounded-full mx-auto"
+                    objectFit="cover"
+                  />
+                </a>
                 <p className="text-center mt-2">Caleb Valdez-Copeland</p>
                 <p className="text-sm text-center">Prev. @ Tesla, Google, Goldman Sachs</p>
               </div>
               <div>
-                <Image
-                  src="/fernando.png"
-                  alt="Fernando Sckaff"
-                  width={128} // Adjust according to your image's aspect ratio if needed
-                  height={128}
-                  className="rounded-full mx-auto"
-                  objectFit="cover"
-                />
+                <a href="https://www.linkedin.com/in/fernando-sckaff/" target="_blank">
+                  <Image
+                    src="/fernando.png"
+                    alt="Fernando Sckaff"
+                    width={128} // Adjust according to your image's aspect ratio if needed
+                    height={128}
+                    className="rounded-full mx-auto"
+                    objectFit="cover"
+                  />
+                </a>
                 <p className="text-center mt-2">Fernando Sckaff</p>
                 <p className="text-sm text-center">Machine Learning and Bioinformatics</p>
               </div>
