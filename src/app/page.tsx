@@ -381,7 +381,7 @@ export default function Home() {
           <section className="mb-8">
             <h3 className="text-xl font-semibold text-center mb-4">Our Founders</h3>
             <div className="flex justify-center space-x-4">
-              <div>
+              <div className="w-1/2 px-2">
                 <a href="https://www.linkedin.com/in/caleb-valdez-copeland/" target="_blank">
                   <Image
                     src="/caleb.png"
@@ -395,7 +395,7 @@ export default function Home() {
                 <p className="text-center mt-2">Caleb Valdez-Copeland</p>
                 <p className="text-[10px] text-center">Prev APM @ Google<br />Ex Software Engineering @ Tesla</p>
               </div>
-              <div>
+              <div className="w-1/2 px-2">
                 <a href="https://www.linkedin.com/in/fernando-sckaff/" target="_blank">
                   <Image
                     src="/fernando.png"
