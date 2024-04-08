@@ -393,7 +393,7 @@ export default function Home() {
                   />
                 </a>
                 <p className="text-center mt-2">Caleb Valdez-Copeland</p>
-                <p className="text-sm text-center">Prev. @ Tesla, Google, Goldman Sachs</p>
+                <p className="text-[10px] text-center">Prev APM @ Google<br />Ex Software Engineering @ Tesla</p>
               </div>
               <div>
                 <a href="https://www.linkedin.com/in/fernando-sckaff/" target="_blank">
@@ -407,7 +407,7 @@ export default function Home() {
                   />
                 </a>
                 <p className="text-center mt-2">Fernando Sckaff</p>
-                <p className="text-sm text-center">Machine Learning and Bioinformatics</p>
+                <p className="text-[10px] text-center">ML Intern @ Lacerta Therapeutics<br />Bioinformatics Researcher @ UF</p>
               </div>
             </div>
           </section>
