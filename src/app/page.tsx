@@ -113,8 +113,6 @@ export default function Home() {
       source: (form.elements.namedItem("source") as HTMLTextAreaElement).value, // Optional
     };
 
-    console.log(formData);
-
     const response = await fetch("/api/contact", {
       method: "POST",
       headers: {
@@ -370,6 +368,7 @@ export default function Home() {
 
       {/*- MODALS -*/}
 
+      {/* LEARN MORE MODAL */}
       <Modal
         isVisible={isModalVisible}
         onClose={toggleModal}
@@ -512,6 +511,8 @@ export default function Home() {
           </div>
         </div>
       </Modal>
+      
+      {/* CONTACT US MODAL */}
       <Modal 
         isVisible={isContactModalVisible} 
         onClose={toggleContactModal}
