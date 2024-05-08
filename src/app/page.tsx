@@ -1,5 +1,7 @@
 "use client";
 
+// Template: https://vercel.com/templates/next.js/liftoff
+
 import PhoneInput, { isPossiblePhoneNumber } from "react-phone-number-input";
 import { AnimatePresence, motion } from "framer-motion";
 import { gradient } from "@/components/Gradient";
