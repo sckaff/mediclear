@@ -13,6 +13,13 @@ import { useRef } from "react";
 import Image from 'next/image';
 import { z } from 'zod';
 
+declare global {
+  interface Window {
+    view_count: number;
+    incrementViewCount: () => void;
+  }
+}
+
 export default function Home() {
   const [signUpResult, setSignUpResult] = useState<"success" | "error" | null>(null);
   const [isContactModalVisible, setIsContactModalVisible] = useState(false);
@@ -30,6 +37,37 @@ export default function Home() {
 
   const learnMoreRef = useRef<HTMLDivElement>(null);
 
+
+  // View count
+  const [viewCount, setViewCount] = useState<number>(0);
+
+  useEffect(() => {
+    // Only run this code in a browser environment
+    if (typeof window !== 'undefined') {
+      // Get the initial count from localStorage or default to 0
+      const savedCount = localStorage.getItem('view_count');
+      const initialCount = savedCount ? parseInt(savedCount, 10) : 0;
+      setViewCount(initialCount);
+
+      // Increment the view count
+      const incrementViewCount = () => {
+        setViewCount((prevCount) => {
+          const newCount = prevCount + 1;
+          localStorage.setItem('view_count', newCount.toString());
+          window.view_count = newCount;
+          return newCount;
+        });
+      };
+
+      // Call incrementViewCount to increment on page load
+      incrementViewCount();
+
+      // Expose incrementViewCount to the global scope
+      window.incrementViewCount = incrementViewCount;
+    }
+  }, []);
+
+  // Use gradient effect
   useEffect(() => {
     gradient.initGradient("#gradient-canvas");
   }, []);
