@@ -57,7 +57,7 @@ const footer = () => {
 
                     <div className='sm:col-span-6 lg:col-span-3'>
                         <div className="flex flex-shrink-0 items-center border-right">
-                            <Image src="/assets/footer/logo.svg" alt="logo" width={214} height={66} />
+                            <Image src="/assets/footer/logo.png" alt="logo" width={214} height={66} />
                         </div>
                     </div>
 
