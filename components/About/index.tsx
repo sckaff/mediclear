@@ -139,7 +139,7 @@ const About = () => {
                 </span>
               </h2>
               <p>
-              Mediclear's advanced AI technology streamlines medical coding with unmatched efficiency, 
+              We streamlines medical coding with unmatched efficiency, 
               reducing errors and denied claims to maximize revenue for healthcare providers.
               </p>
               <div>

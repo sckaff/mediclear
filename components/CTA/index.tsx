@@ -32,7 +32,7 @@ const CTA = () => {
                 Join With Us Today & Increase Your Productivity
               </h2>
               <p>
-              Join with us today and increase your productivity by leveraging Mediclear's AI-powered medical coding assistant to automate coding tasks, 
+              Join with us today and increase your productivity by leveraging Mediclear – an AI-powered medical coding assistant to automate coding tasks, 
               eliminate costly manual errors, and allow your staff to focus on higher-value work.
               </p>
             </motion.div>
