@@ -1,4 +1,6 @@
-// /pages/api/hello.js
-export default function handler(req, res) {
-    res.status(200).json({ message: 'Hello, world!' });
-  }
+// /app/api/hello/route.js
+export async function GET(request) {
+  return new Response(JSON.stringify({ message: 'Hello, world!' }), {
+    headers: { 'Content-Type': 'application/json' },
+  });
+}
