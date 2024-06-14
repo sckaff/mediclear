@@ -1,4 +1,5 @@
 "use client";
+import SectionHeader from "../Common/SectionHeader";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
@@ -37,7 +38,16 @@ const Contact = () => {
             />
           </div>
 
-          <div className="flex flex-col-reverse flex-wrap gap-8 md:flex-row md:flex-nowrap md:justify-between xl:gap-20">
+          <SectionHeader
+            headerInfo={{
+              title: "CONTACT US",
+              subtitle: "Get in Touch with Us",
+              description: `We are here to help and answer any question you might have. We look forward to hearing from you.`,
+            }}
+          />
+
+          <div className="flex flex-col-reverse pt-16 flex-wrap gap-8 md:flex-row md:flex-nowrap md:justify-between xl:gap-20">
+              
             <motion.div
               variants={{
                 hidden: {
@@ -186,7 +196,15 @@ const Contact = () => {
               </div> */}
               <div className="5 mb-7">
                 <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
-                  Email Address
+                  Caleb Valdez-Copeland
+                </h3>
+                <p>
+                  <a href="#">caleb@mediclear.ai</a>
+                </p>
+              </div>
+              <div className="5 mb-7">
+                <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
+                  Fernando Sckaff
                 </h3>
                 <p>
                   <a href="#">fernando@mediclear.ai</a>

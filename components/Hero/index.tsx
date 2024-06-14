@@ -44,14 +44,14 @@ const Hero = () => {
                       aria-label="get started button"
                       className="flex rounded-full bg-black px-7.5 py-2.5 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
                     >
-                      Get Started
+                      Get Updates
                     </button>
                   </div>
                 </form>
 
-                <p className="mt-5 text-black dark:text-white">
+                {/* <p className="mt-5 text-black dark:text-white">
                   Try for free no credit card required.
-                </p>
+                </p> */}
               </div>
             </div>
 

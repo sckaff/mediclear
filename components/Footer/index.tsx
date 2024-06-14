@@ -54,14 +54,14 @@ const Footer = () => {
                 </p>
                 <a
                   href="#"
-                  className="text-itemtitle font-medium text-black dark:text-white"
-                >
+                  className="text-itemtitle font-small text-black dark:text-white"
+                  >
                   fernando@mediclear.ai
                 </a>
               </motion.div>
 
-              <div className="flex w-full flex-col gap-8 md:flex-row md:justify-between md:gap-0 lg:w-2/3 xl:w-7/12">
-                <motion.div
+              <div className="flex w-full flex-col gap-8 md:flex-row md:justify-end md:gap-0 lg:w-2/3 xl:w-7/12">
+                {/* <motion.div
                   variants={{
                     hidden: {
                       opacity: 0,
@@ -100,7 +100,7 @@ const Footer = () => {
                         Features
                       </a>
                     </li>
-                    {/* <li>
+                    <li>
                       <a
                         href="#"
                         className="mb-3 inline-block hover:text-primary"
@@ -115,7 +115,7 @@ const Footer = () => {
                       >
                         Pricing
                       </a>
-                    </li> */}
+                    </li>
                   </ul>
                 </motion.div>
 
@@ -150,7 +150,7 @@ const Footer = () => {
                         Company
                       </a>
                     </li>
-                    {/* <li>
+                    <li>
                       <a
                         href="#"
                         className="mb-3 inline-block hover:text-primary"
@@ -165,7 +165,7 @@ const Footer = () => {
                       >
                         Our Blog
                       </a>
-                    </li> */}
+                    </li>
                     <li>
                       <a
                         href="#"
@@ -175,7 +175,7 @@ const Footer = () => {
                       </a>
                     </li>
                   </ul>
-                </motion.div>
+                </motion.div> */}
 
                 <motion.div
                   variants={{
@@ -263,7 +263,7 @@ const Footer = () => {
               viewport={{ once: true }}
               className="animate_top"
             >
-              <ul className="flex items-center gap-8">
+              {/* <ul className="flex items-center gap-8">
                 <li>
                   <a href="#" className="hover:text-primary">
                     English
@@ -279,7 +279,7 @@ const Footer = () => {
                     Support
                   </a>
                 </li>
-              </ul>
+              </ul> */}
             </motion.div>
 
             <motion.div

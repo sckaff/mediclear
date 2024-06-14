@@ -29,11 +29,11 @@ const CTA = () => {
               className="animate_left md:w-[70%] lg:w-1/2"
             >
               <h2 className="mb-4 w-11/12 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle4">
-                Join With Us Today & Increase Your Productivity
+                Increase Your Productivity
               </h2>
               <p>
               Join with us today and increase your productivity by leveraging Mediclear – an AI-powered medical coding assistant to automate coding tasks, 
-              eliminate costly manual errors, and allow your staff to focus on higher-value work.
+              eliminate costly manual errors, and reduce your claim denials.
               </p>
             </motion.div>
             <motion.div
@@ -66,7 +66,7 @@ const CTA = () => {
                   href="signup.html"
                   className="inline-flex items-center gap-2.5 rounded-full bg-black px-6 py-3 font-medium text-white hover:opacity-90 dark:bg-white dark:text-black"
                 >
-                  Sign up free
+                  Try our demo
                   <Image
                     width={20}
                     height={20}
