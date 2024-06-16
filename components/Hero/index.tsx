@@ -4,9 +4,30 @@ import { useState } from "react";
 
 const Hero = () => {
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    try {
+      const res = await fetch('/api/sendEmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const result = await res.json();
+      if (res.status === 200) {
+        setMessage("Thank you for subscribing!");
+      } else {
+        setMessage(result.message);
+      }
+    } catch (error) {
+      console.error('Error submitting the form', error);
+      setMessage("There was an error submitting the form.");
+    }
   };
 
   return (
@@ -16,18 +37,18 @@ const Hero = () => {
           <div className="flex lg:items-center lg:gap-8 xl:gap-32.5">
             <div className=" md:w-1/2">
               <h4 className="mb-4.5 text-lg font-medium text-black dark:text-white">
-              Seamless, accurate, and efficient medical coding
+                Seamless, accurate, and efficient medical coding
               </h4>
-              <h1 className="mb-5 pr-16 text-3xl font-bold text-black dark:text-white xl:text-hero ">
-              Transforming Billing with {"   "}
+              <h1 className="mb-5 pr-16 text-3xl font-bold text-black dark:text-white xl:text-hero">
+                Transforming Billing with {" "}
                 <span className="relative inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-3 before:w-full before:bg-titlebg dark:before:bg-titlebgdark ">
-                AI-Powered Precision
+                  AI-Powered Precision
                 </span>
               </h1>
               <p>
-              AI-powered medical coding solution meticulously crafted to streamline and enhance the 
-              coding process for healthcare providers, ensuring accuracy, efficiency, and 
-              compliance with the latest guidelines.
+                AI-powered medical coding solution meticulously crafted to streamline and enhance the
+                coding process for healthcare providers, ensuring accuracy, efficiency, and
+                compliance with the latest guidelines.
               </p>
 
               <div className="mt-10">
@@ -36,11 +57,13 @@ const Hero = () => {
                     <input
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      type="text"
+                      type="email"
                       placeholder="Your email address"
                       className="rounded-full border border-stroke px-7.5 py-2.5 shadow-solid-2 focus:border-primary focus:outline-none dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary"
+                      required
                     />
                     <button
+                      type="submit"
                       aria-label="get started button"
                       className="flex rounded-full bg-black px-7.5 py-2.5 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
                     >
@@ -48,10 +71,7 @@ const Hero = () => {
                     </button>
                   </div>
                 </form>
-
-                {/* <p className="mt-5 text-black dark:text-white">
-                  Try for free no credit card required.
-                </p> */}
+                {message && <p className="mt-5 text-black dark:text-white">{message}</p>}
               </div>
             </div>
 

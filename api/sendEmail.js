@@ -1,8 +1,10 @@
-const sendgrid = require('@sendgrid/mail');
+// api/sendEmail.js
+
+import sendgrid from '@sendgrid/mail';
 
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
