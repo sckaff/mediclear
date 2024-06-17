@@ -1,8 +1,41 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    try {
+      const res = await fetch('/api/sendEmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+  
+      console.log(`Response status: ${res.status}`); // Log the status
+  
+      const result = await res.json();
+      console.log(result); // Log the result
+  
+      if (res.status === 200) {
+        setMessage("Thank you for subscribing!");
+        setEmail("");
+      } else {
+        setMessage(result.message);
+      }
+    } catch (error) {
+      console.error('Error submitting the form', error);
+      setMessage("There was an error submitting the form.");
+    }
+  };
+
   return (
     <>
       <footer className="border-t border-stroke bg-white dark:border-strokedark dark:bg-blacksection">
@@ -211,6 +244,8 @@ const Footer = () => {
                       />
 
                       <button
+                        type="submit"
+                        onClick={handleSubmit}
                         aria-label="signup to newsletter"
                         className="absolute right-0 p-4"
                       >
