@@ -42,7 +42,7 @@ const Contact = () => {
       console.log(result); // Log the result
 
       if (res.status === 200) {
-        setMessage('Thank you for reaching out to us!');
+        setMessage('Thank you for reaching out to us! We will get back to you soon.');
         setFormData({
           name: '',
           email: '',
