@@ -6,20 +6,24 @@ const Hero = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLInputElement>) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
-      const response = await fetch("/api/signup", {
-        method: "POST",
+      const res = await fetch('/api/sendEmail', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email }),
       });
-
-      const result = await response.json();
-      if (response.ok) {
+  
+      console.log(`Response status: ${res.status}`); // Log the status
+  
+      const result = await res.json();
+      console.log(result); // Log the result
+  
+      if (res.status === 200) {
         setMessage("Thank you for subscribing!");
       } else {
         setMessage(result.message);
