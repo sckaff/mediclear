@@ -25,6 +25,7 @@ const Hero = () => {
   
       if (res.status === 200) {
         setMessage("Thank you for subscribing!");
+        setEmail("");
       } else {
         setMessage(result.message);
       }
