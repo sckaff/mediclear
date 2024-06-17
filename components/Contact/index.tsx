@@ -43,6 +43,13 @@ const Contact = () => {
 
       if (res.status === 200) {
         setMessage('Thank you for reaching out to us!');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          message: '',
+          source: '',
+        });
       } else {
         setMessage(result.message);
       }
@@ -179,9 +186,9 @@ const Contact = () => {
                     </svg>
                   </button>
                 </div>
+                {message && <p>{message}</p>}
               </form>
             </motion.div>
-
             <motion.div
               variants={{
                 hidden: {

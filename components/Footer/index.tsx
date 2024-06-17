@@ -235,17 +235,17 @@ const Footer = () => {
                     Subscribe to receive future updates
                   </p>
 
-                  <form action="#">
+                  <form onSubmit={handleSubmit} action="#">
                     <div className="relative">
                       <input
                         type="text"
                         placeholder="Email address"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         className="w-full rounded-full border border-stroke px-6 py-3 shadow-solid-11 focus:border-primary focus:outline-none dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary"
                       />
-
                       <button
                         type="submit"
-                        onClick={handleSubmit}
                         aria-label="signup to newsletter"
                         className="absolute right-0 p-4"
                       >
@@ -271,6 +271,7 @@ const Footer = () => {
                         </svg>
                       </button>
                     </div>
+                    {message && <p>{message}</p>}
                   </form>
                 </motion.div>
               </div>
