@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Mediclear",
-  description: "AI-Powered Medical Coding",
+  title: "404 - Error",
+  description: "Mediclear's Error Page",
   // other metadata
 };
 
@@ -20,10 +20,11 @@ const ErroPage = () => {
         />
 
         <h2 className="mb-5 text-2xl font-semibold text-black dark:text-white md:text-4xl">
-          Coming Soon...
+        This Page Does Not Exist
         </h2>
         <p className="mb-7.5">
-          AI-Powered Medical Coding
+        The page you were looking for appears to have been moved, deleted or
+        does not exist.
         </p>
 
         <a
