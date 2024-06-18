@@ -4,9 +4,35 @@ import { useState } from "react";
 
 const Hero = () => {
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+  
+    try {
+      const res = await fetch('/api/sendEmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+  
+      console.log(`Response status: ${res.status}`); // Log the status
+  
+      const result = await res.json();
+      console.log(result); // Log the result
+  
+      if (res.status === 200) {
+        setMessage("Thank you for subscribing!");
+        setEmail("");
+      } else {
+        setMessage(result.message);
+      }
+    } catch (error) {
+      console.error('Error submitting the form', error);
+      setMessage("There was an error submitting the form.");
+    }
   };
 
   return (
@@ -31,7 +57,7 @@ const Hero = () => {
               </p>
 
               <div className="mt-10">
-                <form onSubmit={handleSubmit}>
+                <form>
                   <div className="flex flex-wrap gap-5">
                     <input
                       value={email}
@@ -41,17 +67,16 @@ const Hero = () => {
                       className="rounded-full border border-stroke px-7.5 py-2.5 shadow-solid-2 focus:border-primary focus:outline-none dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary"
                     />
                     <button
+                      type="submit"
+                      onClick={handleSubmit}
                       aria-label="get started button"
                       className="flex rounded-full bg-black px-7.5 py-2.5 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
                     >
-                      Get Started
+                      Get Updates
                     </button>
                   </div>
                 </form>
-
-                <p className="mt-5 text-black dark:text-white">
-                  Try for free no credit card required.
-                </p>
+                {message && <p className="mt-5 text-black dark:text-white">{message}</p>}
               </div>
             </div>
 

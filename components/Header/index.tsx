@@ -1,11 +1,12 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
+
 
 const Header = () => {
   const [navigationOpen, setNavigationOpen] = useState(false);
@@ -137,11 +138,7 @@ const Header = () => {
                   ) : (
                     <Link
                       href={`${menuItem.path}`}
-                      className={
-                        pathUrl === menuItem.path
-                          ? "text-primary hover:text-primary"
-                          : "hover:text-primary"
-                      }
+                      className={ "hover:text-primary" }
                     >
                       {menuItem.title}
                     </Link>
@@ -154,18 +151,26 @@ const Header = () => {
           <div className="mt-7 flex items-center gap-6 xl:mt-0">
             <ThemeToggler />
 
-            <Link
+            {/* <Link
               href="#"
               className="text-regular font-medium text-waterloo hover:text-primary"
             >
               Schedule a Demo
-            </Link>
+            </Link> */}
 
             <Link
-              href="#"
+              href="error"
               className="flex items-center justify-center rounded-full bg-primary px-7.5 py-2.5 text-regular text-white duration-300 ease-in-out hover:bg-primaryho"
             >
-              Get Started
+              Try Demo
+
+              <Image
+                    width={20}
+                    height={20}
+                    src="/images/icon/icon-arrow-dark.svg"
+                    alt="Arrow"
+                    className="pl-1"
+                  />
             </Link>
           </div>
         </div>

@@ -1,8 +1,41 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    try {
+      const res = await fetch('/api/sendEmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+  
+      console.log(`Response status: ${res.status}`); // Log the status
+  
+      const result = await res.json();
+      console.log(result); // Log the result
+  
+      if (res.status === 200) {
+        setMessage("Thank you for subscribing!");
+        setEmail("");
+      } else {
+        setMessage(result.message);
+      }
+    } catch (error) {
+      console.error('Error submitting the form', error);
+      setMessage("There was an error submitting the form.");
+    }
+  };
+
   return (
     <>
       <footer className="border-t border-stroke bg-white dark:border-strokedark dark:bg-blacksection">
@@ -54,14 +87,14 @@ const Footer = () => {
                 </p>
                 <a
                   href="#"
-                  className="text-itemtitle font-medium text-black dark:text-white"
-                >
+                  className="text-itemtitle font-small text-black dark:text-white"
+                  >
                   fernando@mediclear.ai
                 </a>
               </motion.div>
 
-              <div className="flex w-full flex-col gap-8 md:flex-row md:justify-between md:gap-0 lg:w-2/3 xl:w-7/12">
-                <motion.div
+              <div className="flex w-full flex-col gap-8 md:flex-row md:justify-end md:gap-0 lg:w-2/3 xl:w-7/12">
+                {/* <motion.div
                   variants={{
                     hidden: {
                       opacity: 0,
@@ -100,7 +133,7 @@ const Footer = () => {
                         Features
                       </a>
                     </li>
-                    {/* <li>
+                    <li>
                       <a
                         href="#"
                         className="mb-3 inline-block hover:text-primary"
@@ -115,7 +148,7 @@ const Footer = () => {
                       >
                         Pricing
                       </a>
-                    </li> */}
+                    </li>
                   </ul>
                 </motion.div>
 
@@ -150,7 +183,7 @@ const Footer = () => {
                         Company
                       </a>
                     </li>
-                    {/* <li>
+                    <li>
                       <a
                         href="#"
                         className="mb-3 inline-block hover:text-primary"
@@ -165,7 +198,7 @@ const Footer = () => {
                       >
                         Our Blog
                       </a>
-                    </li> */}
+                    </li>
                     <li>
                       <a
                         href="#"
@@ -175,7 +208,7 @@ const Footer = () => {
                       </a>
                     </li>
                   </ul>
-                </motion.div>
+                </motion.div> */}
 
                 <motion.div
                   variants={{
@@ -202,15 +235,17 @@ const Footer = () => {
                     Subscribe to receive future updates
                   </p>
 
-                  <form action="#">
+                  <form onSubmit={handleSubmit} action="#">
                     <div className="relative">
                       <input
                         type="text"
                         placeholder="Email address"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         className="w-full rounded-full border border-stroke px-6 py-3 shadow-solid-11 focus:border-primary focus:outline-none dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary"
                       />
-
                       <button
+                        type="submit"
                         aria-label="signup to newsletter"
                         className="absolute right-0 p-4"
                       >
@@ -236,6 +271,7 @@ const Footer = () => {
                         </svg>
                       </button>
                     </div>
+                    {message && <p>{message}</p>}
                   </form>
                 </motion.div>
               </div>
@@ -263,7 +299,7 @@ const Footer = () => {
               viewport={{ once: true }}
               className="animate_top"
             >
-              <ul className="flex items-center gap-8">
+              {/* <ul className="flex items-center gap-8">
                 <li>
                   <a href="#" className="hover:text-primary">
                     English
@@ -279,7 +315,7 @@ const Footer = () => {
                     Support
                   </a>
                 </li>
-              </ul>
+              </ul> */}
             </motion.div>
 
             <motion.div
