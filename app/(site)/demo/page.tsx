@@ -72,7 +72,7 @@ const DemoPage = () => {
         )}
 
         {!icdCodes || icdCodes.length === 0 && (
-          <p className="mt-7.5 text-gray-500">No ICD codes available. Enter a clinical note and click "Generate Code".</p>
+          <p className="mt-7.5 text-gray-500">No ICD codes available. Enter a clinical note and click &quot;Generate Code&quot;.</p>
         )}
       </div>
     </section>
