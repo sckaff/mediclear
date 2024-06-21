@@ -2,12 +2,12 @@ import { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Mediclear",
-  description: "AI-Powered Medical Coding",
+  title: "404 - Error",
+  description: "Mediclear's Error Page",
   // other metadata
 };
 
-const ErrorPage = () => {
+const ErroPage = () => {
   return (
     <section className="overflow-hidden pb-25 pt-45 lg:pb-32.5 lg:pt-50 xl:pb-37.5 xl:pt-55">
       <div className="animate_top mx-auto max-w-[518px] text-center">
@@ -20,10 +20,11 @@ const ErrorPage = () => {
         />
 
         <h2 className="mb-5 text-2xl font-semibold text-black dark:text-white md:text-4xl">
-        Coming Soon...
+        This Page Does Not Exist
         </h2>
         <p className="mb-7.5">
-        AI-Powered Medical Coding
+        The page you were looking for appears to have been moved, deleted or
+        does not exist.
         </p>
 
         <a
@@ -50,4 +51,4 @@ const ErrorPage = () => {
   );
 };
 
-export default ErrorPage;
+export default ErroPage;
