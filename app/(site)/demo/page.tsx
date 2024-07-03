@@ -17,7 +17,7 @@ const DemoPage = () => {
 
   const handleGenerateCode = async () => {
     try {
-      const response = await axios.post('http://35.196.208.245:8000/predict_icd', {
+      const response = await axios.post('https://demo.mediclear.ai/predict_icd', {
         clinical_note: clinicalNote,
       }, {
         headers: {
