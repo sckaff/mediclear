@@ -17,7 +17,7 @@ const DemoPage = () => {
 
   const handleGenerateCode = async () => {
     try {
-      const response = await axios.post('http://127.0.0.1:5000/predict_icd', {
+      const response = await axios.post('https://demo.mediclear.ai/', {
         clinical_note: clinicalNote,
       }, {
         headers: {
@@ -54,6 +54,13 @@ const DemoPage = () => {
 
         <button
           onClick={handleGenerateCode}
+          className="inline-flex items-center gap-2.5 rounded-full bg-gray-200 px-6 py-3 font-medium text-grey transition-all duration-300 ease-in-out hover:bg-blackho hover:scale-105 active:scale-95 dark:bg-btndark dark:hover:bg-blackho"
+        >
+          Generate Code
+        </button>
+
+        {/* <button
+          onClick={handleGenerateCode}
           className="inline-flex items-center gap-2.5 rounded-full bg-gray-200 px-6 py-3 font-medium text-grey duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
           disabled
         >
@@ -62,7 +69,7 @@ const DemoPage = () => {
 
         <div className="mt-4 p-4 max-w-xl mx-auto bg-yellow-200 text-yellow-800 border border-yellow-300 rounded-xl">
           <p>⚠ The service is currently in maintenance. Please try again later.</p>
-        </div>
+        </div> */}
 
         {icdCodes && icdCodes.length > 0 && (
           <div className="mt-7.5 text-left">
@@ -76,9 +83,9 @@ const DemoPage = () => {
           </div>
         )}
 
-        {/* {!icdCodes || icdCodes.length === 0 && (
+        {!icdCodes || icdCodes.length === 0 && (
           <p className="mt-7.5 text-gray-500">No ICD codes available. Enter a clinical note and click &quot;Generate Code&quot;.</p>
-        )} */}
+        )}
       </div>
     </section>
   );
