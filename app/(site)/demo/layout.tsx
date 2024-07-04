@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Demo Page - Solid SaaS Boilerplate",
-  description: "This is Demo page for Solid Pro",
+  title: "Product Demo - Mediclear",
+  description: "This is Demo page for Mediclear AI",
 };
 
 export default function DemoLayout({ children }: { children: React.ReactNode }) {
