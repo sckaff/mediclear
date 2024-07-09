@@ -14,7 +14,7 @@ const DemoPageClient = () => {
 
   const handleGenerateCode = async () => {
     try {
-      const response = await axios.post('https://demo.mediclear.ai/', {
+      const response = await axios.post('https://api.mediclear.ai/demo', {
         clinical_note: clinicalNote,
       }, {
         headers: {
