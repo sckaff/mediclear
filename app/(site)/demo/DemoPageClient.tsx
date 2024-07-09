@@ -19,8 +19,7 @@ const DemoPageClient = () => {
     setLoading(true);
     setError('');
     try {
-      // const response = await axios.post('https://api.mediclear.ai/demo', {
-      const response = await axios.post('http://localhost:5000/demo', {
+      const response = await axios.post('https://api.mediclear.ai/demo', {
         clinical_note: clinicalNote,
       }, {
         headers: {
