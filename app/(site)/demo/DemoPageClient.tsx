@@ -88,7 +88,7 @@ const DemoPageClient = () => {
                   <p className="text-sm text-gray-700 dark:text-gray-300">{code.description}</p>
                 </div>
                 <p className="text-sm text-gray-700 dark:text-gray-300 border border-green-500 rounded-md p-2">
-                  {code.similarity}
+                  {code.similarity * 100}%
                 </p>
               </div>
             ))}
