@@ -1,12 +1,11 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
-
 
 const Header = () => {
   const [navigationOpen, setNavigationOpen] = useState(false);
@@ -26,7 +25,15 @@ const Header = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleStickyMenu);
-  });
+    return () => {
+      window.removeEventListener("scroll", handleStickyMenu);
+    };
+  }, []);
+
+  const handleMenuItemClick = () => {
+    setNavigationOpen(false);
+    setDropdownToggler(false);
+  };
 
   return (
     <header
@@ -130,7 +137,9 @@ const Header = () => {
                       >
                         {menuItem.submenu.map((item, key) => (
                           <li key={key} className="hover:text-primary">
-                            <Link href={item.path || "#"}>{item.title}</Link>
+                            <Link href={item.path || "#"} onClick={handleMenuItemClick}>
+                              {item.title}
+                            </Link>
                           </li>
                         ))}
                       </ul>
@@ -138,7 +147,8 @@ const Header = () => {
                   ) : (
                     <Link
                       href={`${menuItem.path}`}
-                      className={ "hover:text-primary" }
+                      className="hover:text-primary"
+                      onClick={handleMenuItemClick}
                     >
                       {menuItem.title}
                     </Link>
@@ -161,16 +171,17 @@ const Header = () => {
             <Link
               href="demo"
               className="flex items-center justify-center rounded-full bg-primary px-7.5 py-2.5 text-regular text-white duration-300 ease-in-out hover:bg-primaryho"
+              onClick={handleMenuItemClick}
             >
               Try Demo
 
               <Image
-                    width={20}
-                    height={20}
-                    src="/images/icon/icon-arrow-dark.svg"
-                    alt="Arrow"
-                    className="pl-1"
-                  />
+                width={20}
+                height={20}
+                src="/images/icon/icon-arrow-dark.svg"
+                alt="Arrow"
+                className="pl-1"
+              />
             </Link>
           </div>
         </div>
@@ -178,7 +189,5 @@ const Header = () => {
     </header>
   );
 };
-
-// w-full delay-300
 
 export default Header;
