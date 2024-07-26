@@ -11,6 +11,7 @@ interface IcdCode {
 
 const DemoPageClient = () => {
   const [clinicalNote, setClinicalNote] = useState('');
+  const [displayedNote, setDisplayedNote] = useState('');
   const [icdCodes, setIcdCodes] = useState<IcdCode[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -27,6 +28,7 @@ const DemoPageClient = () => {
         }
       });
       setIcdCodes(response.data);
+      setDisplayedNote(clinicalNote);
       setClinicalNote('');
     } catch (error) {
       console.error('Error fetching ICD codes:', error);
@@ -38,7 +40,7 @@ const DemoPageClient = () => {
 
   return (
     <section className="overflow-hidden pb-25 pt-45 lg:pb-32.5 lg:pt-50 xl:pb-37.5 xl:pt-55">
-      <div className="animate_top mx-auto max-w-[1000px] text-center">
+      <div className="animate_top mx-auto max-w-[1000px] text-center pl-8 pr-8">
         <h2 className="mb-5 text-2xl font-semibold text-black dark:text-white md:text-4xl">
           Product Demo
         </h2>
@@ -74,6 +76,15 @@ const DemoPageClient = () => {
 
         {error && (
           <p className="mt-4 text-red-500">{error}</p>
+        )}
+
+        {displayedNote && (
+          <div className="mt-7.5 text-left">
+            <h3 className="mb-2 pt-8 text-m font-semibold text-center text-black dark:text-white md:text-4xl">
+              Description
+            </h3>
+            <p className="mb-5 text-sm text-center text-gray-700 dark:text-gray-300">{displayedNote}</p>
+          </div>
         )}
 
         {icdCodes && icdCodes.length > 0 && (
