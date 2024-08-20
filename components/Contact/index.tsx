@@ -222,7 +222,7 @@ const Contact = () => {
                   Caleb Valdez-Copeland, CEO
                 </h3>
                 <p>
-                  <a href="#">caleb@mediclear.ai</a>
+                  <a href="mailto:caleb@mediclear.ai">caleb@mediclear.ai</a>
                 </p>
               </div>
               <div className="5 mb-7">
@@ -230,7 +230,7 @@ const Contact = () => {
                   Fernando Sckaff, CTO
                 </h3>
                 <p>
-                  <a href="#">fernando@mediclear.ai</a>
+                  <a href="mailto:fernando@mediclear.ai">fernando@mediclear.ai</a>
                 </p>
               </div>
               <div className="5 mb-7">
@@ -238,7 +238,7 @@ const Contact = () => {
                   Nate Tsige, COO
                 </h3>
                 <p>
-                  <a href="#">nate@mediclear.ai</a>
+                  <a href="mailto:nate@mediclear.ai">nate@mediclear.ai</a>
                 </p>
               </div>
               {/* <div>
