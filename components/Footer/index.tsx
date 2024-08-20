@@ -83,7 +83,7 @@ const Footer = () => {
                 </p>
 
                 <p className="mb-1.5 text-sectiontitle uppercase tracking-[5px]">
-                  Contact Us!
+                  contact us
                 </p>
                 <a
                   href="mailto:contact@mediclear.ai"
@@ -228,7 +228,7 @@ const Footer = () => {
                   viewport={{ once: true }}
                   className="animate_top"
                 >
-                  <h4 className="mb-9 text-itemtitle2 font-medium text-black dark:text-white">
+                  <h4 className="mb-1 text-itemtitle2 font-medium text-black dark:text-white">
                     Newsletter
                   </h4>
                   <p className="mb-4 w-[90%]">

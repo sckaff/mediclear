@@ -205,7 +205,7 @@ const Contact = () => {
               whileInView="visible"
               transition={{ duration: 2, delay: 0.1 }}
               viewport={{ once: true }}
-              className="animate_top w-full md:w-2/5 md:p-7.5 lg:w-[26%] xl:pt-15"
+              className="animate_top w-full md:p-0 lg:w-[26%] xl:pt-15"
             >
               <h2 className="mb-12.5 text-3xl font-semibold text-black dark:text-white xl:text-sectiontitle2">
                 Find us
@@ -219,7 +219,7 @@ const Contact = () => {
               </div> */}
               <div className="5 mb-7">
                 <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
-                  Caleb Valdez-Copeland
+                  Caleb Valdez-Copeland, CEO
                 </h3>
                 <p>
                   <a href="#">caleb@mediclear.ai</a>
@@ -227,10 +227,18 @@ const Contact = () => {
               </div>
               <div className="5 mb-7">
                 <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
-                  Fernando Sckaff
+                  Fernando Sckaff, CTO
                 </h3>
                 <p>
                   <a href="#">fernando@mediclear.ai</a>
+                </p>
+              </div>
+              <div className="5 mb-7">
+                <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
+                  Nate Tsige, COO
+                </h3>
+                <p>
+                  <a href="#">nate@mediclear.ai</a>
                 </p>
               </div>
               {/* <div>
