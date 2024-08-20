@@ -9,7 +9,7 @@ export default function Head() {
       {/* Open Graph tags */}
       <meta property="og:title" content="Mediclear AI" />
       <meta property="og:description" content="Mediclear - Medical Coder Agent" />
-      <meta property="og:image" content="https://mediclear.ai/images/og-image.jpg" />
+      <meta property="og:image" content="https://mediclear.ai/og-image.png" />
       <meta property="og:url" content="https://mediclear.ai" />
       <meta property="og:type" content="website" />
       <meta property="og:image:width" content="1200" />
@@ -18,7 +18,7 @@ export default function Head() {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Mediclear AI" />
       <meta name="twitter:description" content="Mediclear - Medical Coder Agent" />
-      <meta name="twitter:image" content="https://mediclear.ai/images/og-image.jpg" />
+      <meta name="twitter:image" content="https://mediclear.ai/og-image.png" />
     </>
   );
 }
