@@ -83,13 +83,13 @@ const Footer = () => {
                 </p>
 
                 <p className="mb-1.5 text-sectiontitle uppercase tracking-[5px]">
-                  contact
+                  Contact Us!
                 </p>
                 <a
-                  href="#"
+                  href="mailto:contact@mediclear.ai"
                   className="text-itemtitle font-small text-black dark:text-white"
                   >
-                  fernando@mediclear.ai
+                  contact@mediclear.ai
                 </a>
               </motion.div>
 

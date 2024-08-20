@@ -8,8 +8,8 @@ export async function POST(req) {
   const { email } = await req.json();
 
   const content = {
-    to: 'fernando@mediclear.ai',
-    from: 'fernando@mediclear.ai',
+    to: 'contact@mediclear.ai',
+    from: 'contact@mediclear.ai',
     subject: 'New Sign-Up',
     text: `Email: ${email}`,
     html: `<p>Email: ${email}</p>`,

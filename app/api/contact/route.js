@@ -9,8 +9,8 @@ export async function POST(req) {
 
   const emailContent = `Name: ${name}\nEmail: ${email}\n${phone ? 'Phone: ' + phone + '\n' : ''}Message: ${message}\n${source ? 'Heard about us through: ' + source : ''}`;
   const content = {
-    to: 'fernando@mediclear.ai',
-    from: 'fernando@mediclear.ai',
+    to: 'contact@mediclear.ai',
+    from: 'contact@mediclear.ai',
     subject: `New message from ${name}`,
     text: emailContent,
     html: `<p>${emailContent.replace(/\n/g, '<br>')}</p>`,
