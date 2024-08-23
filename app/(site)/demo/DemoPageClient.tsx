@@ -9,6 +9,8 @@ interface IcdCode {
   similarity: number;
 }
 
+const dev_mode = true; // SET TO FALSE WHEN DEPLOYING TO PRODUCTION
+
 const DemoPageClient = () => {
   const [clinicalNote, setClinicalNote] = useState('');
   const [displayedNote, setDisplayedNote] = useState('');
@@ -20,7 +22,8 @@ const DemoPageClient = () => {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.post('https://api.mediclear.ai/demo', {
+      const apiUrl = dev_mode ? 'http://localhost:5000' : 'https://api.mediclear.ai/demo';
+      const response = await axios.post(apiUrl, {
         clinical_note: clinicalNote,
       }, {
         headers: {
