@@ -9,7 +9,7 @@ interface IcdCode {
   similarity: number;
 }
 
-const dev_mode = true; // SET TO FALSE WHEN DEPLOYING TO PRODUCTION
+const dev_mode = false; // SET TO FALSE WHEN DEPLOYING TO PRODUCTION
 
 const DemoPageClient = () => {
   const [clinicalNote, setClinicalNote] = useState('');
