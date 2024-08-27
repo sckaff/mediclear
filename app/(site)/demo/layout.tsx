@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Product Demo - Mediclear",
+  title: "Mediclear AI Demo",
   description: "This is Demo page for Mediclear AI",
 };
 
