@@ -12,11 +12,11 @@ export default function Head() {
       <meta property="og:image" content="https://www.mediclear.ai/og-image.png?v=1" />
       <meta property="og:url" content="https://mediclear.ai" />
       <meta property="og:type" content="website" />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
 
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
+      <meta property="twitter:domain" content="mediclear.ai" />
+      <meta property="twitter:url" content="https://mediclear.ai" />
       <meta name="twitter:title" content="Mediclear AI" />
       <meta name="twitter:description" content="Mediclear - Medical Coder Agent" />
       <meta name="twitter:image" content="https://www.mediclear.ai/og-image.png?v=1" />
