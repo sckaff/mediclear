@@ -82,8 +82,8 @@ const Contact = () => {
           <SectionHeader
             headerInfo={{
               title: 'CONTACT US',
-              subtitle: 'Get in Touch with Us',
-              description: 'We are here to help and answer any question you might have. We look forward to hearing from you.',
+              subtitle: 'Book a demo today!',
+              description: 'Leverage our AI-powered medical coder, providing faster throughput and higher accuracy.',
             }}
           />
 
