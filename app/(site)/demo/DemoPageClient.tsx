@@ -2,14 +2,16 @@
 
 import { useState } from 'react';
 import axios from 'axios';
+import PasswordModal from './PasswordModal'; // Import the modal component
+import Feature from "@/components/Features";
+import About from "@/components/About";
+import Hero from '@/components/Hero';
 
 interface IcdCode {
   code: string;
   description: string;
   similarity: number;
 }
-
-const dev_mode = true; // SET TO FALSE WHEN DEPLOYING TO PRODUCTION
 
 const DemoPageClient = () => {
   const [clinicalNote, setClinicalNote] = useState('');
@@ -18,19 +20,18 @@ const DemoPageClient = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [showNotes, setShowNotes] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Track authentication state
 
   const handleGenerateCode = async () => {
     setLoading(true);
     setError('');
     try {
-      const apiUrl = dev_mode ? 'http://localhost:5000/demo' : 'https://api.mediclear.ai/demo';
-      const response = await axios.post(apiUrl, {
-        clinical_note: clinicalNote,
-      }, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
+      const apiUrl = 'https://api.mediclear.ai/demo';
+      const response = await axios.post(
+        apiUrl,
+        { clinical_note: clinicalNote },
+        { headers: { 'Content-Type': 'application/json' } }
+      );
       setIcdCodes(response.data);
       setDisplayedNote(clinicalNote);
       setClinicalNote('');
@@ -47,6 +48,28 @@ const DemoPageClient = () => {
     setShowNotes(!showNotes);
   };
 
+  // Password submission logic
+  const handlePasswordSubmit = (password: string) => {
+    // Hardcoded password check
+    if (password === '4cc3ssM3d1cl3@r') {
+      setIsAuthenticated(true); // Allow access if password is correct
+    } else {
+      alert('Incorrect password!');
+    }
+  };
+
+  // Render the password modal if not authenticated
+  if (!isAuthenticated) {
+    return (
+      <main>
+        <PasswordModal onSubmit={handlePasswordSubmit} />
+        <Hero />
+        <Feature />
+      </main>
+    );
+  }
+
+  // Render the demo page if authenticated
   return (
     <section className="overflow-hidden pb-25 pt-45 lg:pb-32.5 lg:pt-50 xl:pb-37.5 xl:pt-55">
       <div className="animate_top mx-auto max-w-[1500px] pl-8 pr-8">
@@ -97,9 +120,7 @@ const DemoPageClient = () => {
               )}
             </div>
 
-            {error && (
-              <p className="mt-4 text-red-500">{error}</p>
-            )}
+            {error && <p className="mt-4 text-red-500">{error}</p>}
           </div>
 
           <div className="mt-7.5 lg:mt-0 lg:flex-1 lg:pl-10 lg:border-l lg:border-gray-300">
@@ -121,9 +142,7 @@ const DemoPageClient = () => {
                 ))}
               </div>
             ) : (
-              !loading && (
-                <p className="text-gray-500">No codes were found.</p>
-              )
+              !loading && <p className="text-gray-500">No codes were found.</p>
             )}
           </div>
         </div>
