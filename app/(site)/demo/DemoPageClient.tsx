@@ -48,21 +48,16 @@ const DemoPageClient = () => {
     setShowNotes(!showNotes);
   };
 
-  // Password submission logic
-  const handlePasswordSubmit = (password: string) => {
-    // Hardcoded password check
-    if (password === '4cc3ssM3d1cl3@r') {
-      setIsAuthenticated(true); // Allow access if password is correct
-    } else {
-      alert('Incorrect password!');
-    }
+  // Function to handle successful authentication
+  const handleAuthenticated = () => {
+    setIsAuthenticated(true);
   };
 
   // Render the password modal if not authenticated
   if (!isAuthenticated) {
     return (
       <main>
-        <PasswordModal onSubmit={handlePasswordSubmit} />
+        <PasswordModal onAuthenticated={handleAuthenticated} />
         <Hero />
         <Feature />
       </main>
