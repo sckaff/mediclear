@@ -1,40 +1,33 @@
-import React from "react";
-import Contact from "@/components/Contact";
-import { Metadata } from "next";
-import Head from "next/head";
+// pages/contact.tsx
 
-export const metadata: Metadata = {
-  title: "Contact Us",
-  description: "This is the Contact page for Mediclear AI. Contact us for a demo request.",
-};
+"use client";
+
+import React, { useEffect } from "react";
+import Contact from "@/components/Contact";
+import { InlineWidget } from "react-calendly";
 
 const ContactPage = () => {
+  // Use useEffect to dynamically set the document title
+  useEffect(() => {
+    document.title = "Contact Us";
+  }, []); // The empty dependency array ensures the title is set once when the component mounts
+
   return (
-    
-    // READ BEFORE INTEGRATING CALENDLY: https://nextjs.org/docs/app/building-your-application/upgrading/app-router-migration#step-3-migrating-nexthead
     <>
-      {/* <Head>   
-        <script
-          type="text/javascript"
-          src="https://assets.calendly.com/assets/external/widget.js"
-          async
-        ></script>
-      </Head> */}
-      <div className="pb-20 pt-40">
+      <div className="pt-40">
         {/* Contact form component */}
         <Contact />
 
         {/* Calendly inline widget */}
-        {/* <div className="mt-20 mx-auto max-w-3xl">
-          <h2 className="text-3xl font-semibold text-center text-black dark:text-white mb-10">
-            Schedule a Meeting with Us
+        <div className="mt-8">
+          <h2 className="mx-auto mb-8 text-center text-3xl font-bold text-black dark:text-white md:w-4/5 xl:w-1/2 xl:text-sectiontitle3">
+            Or schedule a meeting!
           </h2>
-          <div
-            className="calendly-inline-widget"
-            data-url="https://calendly.com/contact-mediclear/30min"
-            style={{ minWidth: '320px', height: '630px' }}
-          ></div>
-        </div> */}
+          <InlineWidget
+            styles={{ colorScheme: "white", height: '750px', width: '100%' }}
+            url="https://calendly.com/contact-mediclear/30min?hide_event_type_details=1&hide_gdpr_banner=1"
+          />
+        </div>
       </div>
     </>
   );

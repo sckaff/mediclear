@@ -16,9 +16,24 @@ import Testimonial from "@/components/Testimonial";
 export const metadata: Metadata = {
   title: "Mediclear",
   description: "Medical Coder Agent",
-  // other metadata
+  openGraph: {
+    title: "Mediclear",
+    description: "Streamlining medical coding through AI technology.",
+    url: "https://www.mediclear.ai/", // Replace with your actual URL
+    siteName: "Mediclear",
+    images: [
+      {
+        url: "https://www.mediclear.ai/og-image.png", // Replace with your Open Graph image URL
+        width: 800,
+        height: 600,
+        alt: "Mediclear Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  // You can also add other metadata like Twitter cards here
 };
-
 export default function Home() {
   return (
     <main>
