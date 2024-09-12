@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import axios from 'axios';
 import PasswordModal from './PasswordModal'; // Import the modal component
 import Feature from "@/components/Features";
@@ -21,6 +21,8 @@ const DemoPageClient = () => {
   const [error, setError] = useState('');
   const [showNotes, setShowNotes] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false); // Track authentication state
+
+  const notesRef = useRef<HTMLDivElement>(null);
 
   const handleGenerateCode = async () => {
     setLoading(true);
@@ -46,6 +48,11 @@ const DemoPageClient = () => {
 
   const handleToggleNotes = () => {
     setShowNotes(!showNotes);
+
+    // Scroll to the notes section if notes are being shown
+    if (!showNotes && notesRef.current) {
+      notesRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   // Function to handle successful authentication
@@ -141,15 +148,16 @@ const DemoPageClient = () => {
             )}
           </div>
         </div>
-
-        {showNotes && displayedNote && (
-          <div className="mt-7.5 text-left">
-            <h3 className="mb-2 pt-8 text-m font-semibold text-center text-black dark:text-white md:text-4xl">
-              Clinical Notes
-            </h3>
-            <p className="mb-5 text-sm text-center text-gray-700 dark:text-gray-300">{displayedNote}</p>
-          </div>
-        )}
+        <div ref={notesRef}>
+          {showNotes && displayedNote && (
+            <div className="mt-7.5 text-left">
+              <h3 className="mb-2 pt-8 text-m font-semibold text-center text-black dark:text-white md:text-4xl">
+                Clinical Notes
+              </h3>
+              <p className="mb-5 text-sm text-center text-gray-700 dark:text-gray-300">{displayedNote}</p>
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );
