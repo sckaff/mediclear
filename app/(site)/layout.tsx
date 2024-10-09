@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <Suspense fallback={null}>
       <Script strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=G-09HFHSNSD0`} />
+          src={`https://www.googletagmanager.com/gtag/js?id=G-4WB4KWK7W8`} />
 
       <Script id='google-analytics' strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -33,7 +33,7 @@ export default function RootLayout({
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 
-                gtag('config', 'G-09HFHSNSD0', {
+                gtag('config', 'G-4WB4KWK7W8', {
                     page_path: window.location.pathname,
                 });
                 `,
